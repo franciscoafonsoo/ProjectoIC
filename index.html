@@ -16,7 +16,7 @@
 </head>
 
 <header>
-	<div class="ui menu">										<!-- header -->
+	<div class="ui menu">								<!-- header -->
 		<div class="header item">
 			<a href="index.html">								<!-- MInt (v2: modify link in js) -->
 				<h1 class="ui header">MInt</h1>
@@ -24,72 +24,13 @@
 		</div>
 		<div class="right menu">								<!-- right menu -->
 			<a class="ui item"><i class="search icon"></i></a>	<!-- search -->
-			<a class="ui item"> 								<!-- pedido (v2: modify link in js) -->
+			<a class="ui teal active item"> 					<!-- pedido (v2: modify link in js) -->
 				<i class="shop icon"></i>
-				Meu Pedido
+				Meu Pedido: $54,31								<!-- variavel dinamica -->
 			</a>
 		</div>
 	</div>
 </header>
-
-<body>																<!-- Body -->
-	<div class="ui fluid grid">										<!-- Grid: divisao do espaço horizontal -->
-		<div class="four wide column">								<!-- Coluna tamanho 4 (Menu) -->
-			<div class="ui fluid vertical pointing menu">			<!-- Menu Vertical  -->
-				<a class="item fluid">			Entradas</a>
-				<a class="item fluid active">	Pratos</a>
-				<a class="item fluid">			Bebidas</a>
-				<a class="item fluid">			Sobremesas</a>
-			</div>
-		</div>
-		<div class="eleven wide stretched column">					<!-- Coluna 11 Principal (missing one) -->
-			<div class="ui vertical segment">
-				<div class="ui segments huge">
-					<div class="ui segment">
-						IMAGEM
-					</div>
-					<div class="ui secondary segment">
-						<div class="ui left aligned">Bacalhau com natas</div>
-						<div class="ui center aligned">7,99€</div>
-					</div>
-				</div>
-				<!-- primary segment -->
-				<div class="ui segments huge">
-					<div class="ui segment">
-						IMAGEM
-						</div>
-						<div class="ui secondary segment">
-							<p>Bacalhau com natas</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="ui center aligned basic segment">
-					<div class="ui left icon action input">
-						<i class="call icon"></i>
-						<input type="text" placeholder="Nº Telemóvel">
-						<div class="ui blue submit button">Confirmar</div>
-					</div>
-					<div class="ui horizontal divider">
-						Or
-					</div>
-					<div class="ui left icon action input">
-						<i class="calendar icon"></i>
-						<input type="text" placeholder="Nº Reserva">
-						<div class="ui blue submit button">Confirmar</div>
-					</div>
-				</div>
-				<div class="ui center aligned basic segment">
-					<div class="ui action input">
-						<input type="text" value="$42.34">
-						<button class="ui teal right labeled icon button">
-							<i class="cart icon"></i>
-							Checkout
-						</button>
-					</div>
-				</div>	
-			</div>
-		</div>
-	</div>
+<body>
 </body>
 </html>
