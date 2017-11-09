@@ -1,0 +1,14 @@
+.ui.fluid.vertical.pointing.menu {
+	margin-top: 1em;
+}
+
+#maingrid {
+	padding-top: 4em;
+	display: flex;
+}
+
+#reservasGrid {
+	height: 80hv;
+	padding: 1em 0em;
+	margin: 1em;
+}

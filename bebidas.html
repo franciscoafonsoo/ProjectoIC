@@ -7,108 +7,187 @@
 <head>
 	<title>MInt - Your Menu, Reinvented!</title>
 	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
 	<script
 	src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="semantic/dist/semantic.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
-
-<header>
-	<div class="ui menu">										<!-- header -->
-		<div class="header item">
-			<a href="index.html">								<!-- MInt (v2: modify link in js) -->
-				<h1 class="ui header">MInt</h1>
-			</a>
+<body>
+	<header>
+		<div class="ui fixed menu">									<!-- Header -->
+			<div class="header item">
+				<a href="index.html">								<!-- MInt (v2: modify link in js) -->
+					<h1 class="ui header">MInt</h1>
+				</a>
+			</div>
+			<div class="right menu">								<!-- right menu -->
+				<a class="ui item"><i class="search icon"></i></a>	<!-- search -->
+				<a class="ui teal active item"> 					<!-- pedido (v2: modify link in js) -->
+					<i class="shop icon"></i>
+					Meu Pedido: $54,31								<!-- variavel dinamica (v2) -->
+				</a>
+			</div>
 		</div>
-		<div class="right menu">								<!-- right menu -->
-			<a class="ui item"><i class="search icon"></i></a>	<!-- search -->
-			<a class="ui teal active item"> 					<!-- pedido (v2: modify link in js) -->
-				<i class="shop icon"></i>
-				Meu Pedido: $54,31								<!-- variavel dinamica -->
-			</a>
-		</div>
-	</div>
-</header>
-
-<body>																					<!-- Body -->
-	<div class="ui grid">																<!-- Grid: divisao do espaço horizontal -->
+	</header>
+	<div id='maingrid' class="ui grid">													<!-- Grid: divisao do espaço -->
 		<div class="four wide column">													<!-- Coluna tamanho 4 (Menu) -->
-			<div class="ui fluid vertical pointing menu">								<!-- Menu Vertical  -->
+			<div class="ui fluid huge vertical pointing menu">							<!-- Menu Vertical  -->
 				<a class="item" href="entradas.html">			Entradas</a>
 				<a class="item" href="pratos.html">				Pratos</a>
 				<a class="item teal active" href="bebidas.html">Bebidas</a>
 				<a class="item" href="sobremesas.html">			Sobremesas</a>
 			</div>
+			<table class="ui huge table">
+			  <thead>
+			    <tr><th class="ten wide">Item</th>
+			    <th class="six wide">Preço</th>
+			  </tr></thead>
+			  <tbody>
+			    <tr>
+			      <td>John</td>
+			      <td>Approved</td>
+			    </tr>
+			    <tr>
+			      <td>Jamie</td>
+			      <td>Approved</td>
+			    </tr>
+			    <tr>
+			      <td>Jill</td>
+			      <td>Denied</td>
+			    </tr>
+			  </tbody>
+			  <tfoot>
+			    <tr><th>3 People</th>
+			    <th>2 Approved</th>
+			  </tr></tfoot>
+			</table>
 		</div>
-		<div id='main' class="twelve wide stretched column">							<!-- Coluna 11 Principal (missing one) -->
+		<div class="six wide stretched column">												<!-- 1º Coluna Principal -->
 			<div class="ui vertical segment">
-				<div class="ui segments huge">
-					<div class="ui segment">											<!-- Primeira Coluna -->
-						IMAGEM
-					</div>
+				<div id='oneleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Primeira Coluna Esquerda -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
 					<div class="ui secondary segment">
 						<div class="ui grid">
-						  <div class="four column row">
-						    <div class="left floated column">Bacalhau com natas</div>	
-						    <div class="right floated column">7,99€</div>
-						  </div>
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
 						</div>	
 					</div>
 				</div>
-				<div class="ui segments huge">
-					<div class="ui segment">											<!-- Segunda Coluna -->
-						IMAGEM
-					</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='twoleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Segunda Coluna Esquerda -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
 					<div class="ui secondary segment">
 						<div class="ui grid">
-						  <div class="four column row">
-						    <div class="left floated column">Bacalhau com natas</div>	
-						    <div class="right floated column">7,99€</div>
-						  </div>
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
 						</div>	
 					</div>
 				</div>
-				<div class="ui segments huge">
-					<div class="ui segment">											<!-- Terceira Coluna -->
-						IMAGEM
-					</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='threeleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Esquerda -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
 					<div class="ui secondary segment">
 						<div class="ui grid">
-						  <div class="four column row">
-						    <div class="left floated column">Bacalhau com natas</div>	
-						    <div class="right floated column">7,99€</div>
-						  </div>
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
 						</div>	
 					</div>
 				</div>
-				<div class="ui segments huge">
-					<div class="ui segment">											<!-- Quarta Coluna -->
-						IMAGEM
-					</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='fourleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Esquerda -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
 					<div class="ui secondary segment">
 						<div class="ui grid">
-						  <div class="four column row">
-						    <div class="left floated column">Bacalhau com natas</div>	
-						    <div class="right floated column">7,99€</div>
-						  </div>
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
 						</div>	
 					</div>
 				</div>
-				<div class="ui segments huge">
-					<div class="ui segment">											<!-- Quinta Coluna -->
-						IMAGEM
-					</div>
+			</div>
+		</div>
+		<div class="six wide stretched column">													<!-- 2º Coluna Principal -->
+			<div class="ui vertical segment">
+				<div id='oneright' onclick="pulse(this.id)" class="ui segments huge"> 			<!-- Primeira Coluna Direita -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
 					<div class="ui secondary segment">
 						<div class="ui grid">
-						  <div class="four column row">
-						    <div class="left floated column">Bacalhau com natas</div>	
-						    <div class="right floated column">7,99€</div>
-						  </div>
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
 						</div>	
 					</div>
 				</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='tworight' onclick="pulse(this.id)" class="ui segments huge">			<!-- Segunda Coluna Direita -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
+					<div class="ui secondary segment">
+						<div class="ui grid">
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='threeright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Direita -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
+					<div class="ui secondary segment">
+						<div class="ui grid">
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="ui vertical segment">
+				<div id='fourright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Direita -->
+						<div class="ui fluid image">
+							<img class="ui large fluid image" src="images/bacalhau.jpg">
+						</div>
+					<div class="ui secondary segment">
+						<div class="ui grid">
+							<div class="row">
+								<div class="thirteen wide column">Bacalhau com natas</div>
+								<div class="right aligned column">7,99€</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
