@@ -5,10 +5,16 @@
 #maingrid {
 	padding-top: 4em;
 	display: flex;
+	padding-right: 1em;
 }
 
 #reservasGrid {
 	height: 80hv;
 	padding: 1em 0em;
 	margin: 1em;
+}
+
+#secondarymenu {
+	margin-top: 5em;
+	display: flex;
 }
