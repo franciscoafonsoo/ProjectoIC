@@ -6,6 +6,7 @@
 <!-- 									-->
 <head>
 	<title>MInt - Your Menu, Reinvented!</title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/general.css">
 	<script
@@ -18,16 +19,16 @@
 <body>
 	<header>
 		<div class="ui fixed menu">									<!-- Header -->
-			<div class="header item">
-				<a href="index.html">								<!-- MInt (v2: modify link in js) -->
+			<a href="../index.html">
+				<div class="header item">							<!-- MInt (v2: modify link in js) -->
 					<h1 class="ui header">MInt</h1>
-				</a>
-			</div>
-			<div class="right menu">								<!-- right menu -->
-				<a class="ui item"><i class="search icon"></i></a>	<!-- search -->
-				<a class="ui teal active item"> 					<!-- pedido (v2: modify link in js) -->
+				</div>
+			</a>
+			<div class="right menu">											<!-- right menu -->
+				<a class="ui item"><i class="search icon"></i></a>				<!-- search -->
+				<a href='../pedido/pedido.html' class="ui teal active item"> 	<!-- pedido (v2: modify link in js) -->
 					<i class="shop icon"></i>
-					Meu Pedido: $54,31								<!-- variavel dinamica (v2) -->
+					Meu Pedido: $54,31											<!-- variavel dinamica (v2) -->
 				</a>
 			</div>
 		</div>

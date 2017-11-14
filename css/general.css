@@ -9,12 +9,14 @@
 }
 
 #reservasGrid {
-	height: 80hv;
-	padding: 1em 0em;
-	margin: 1em;
+	padding-top: 8em;
+	display: flex;
+	padding-right: 1em;
+	padding-left: 2em;
 }
 
 #secondarymenu {
 	margin-top: 5em;
 	display: flex;
 }
+

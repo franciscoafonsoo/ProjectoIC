@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<!-- 									-->
+<!-- HEADER 							-->
+<!-- Includes JQuery.js and Semantic.js -->
+<!-- 									-->
+<head>
+	<title>MInt - Your Menu, Reinvented!</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/general.css">
+	<script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
+</head>
+<body>
+	<header>
+		<div class="ui fixed menu">												<!-- Header -->
+			<div class="header item">
+				<a href="../index.html">										<!-- MInt (v2: modify link in js) -->
+					<h1 class="ui header">MInt</h1>
+				</a>
+			</div>
+			<div class="right menu">											<!-- right menu -->
+				<a class="ui item"><i class="search icon"></i></a>				<!-- search -->
+				<a href='pedido.html' class="ui teal active item"> 				<!-- pedido (v2: modify link in js) -->
+					<i class="shop icon"></i>
+					Meu Pedido: $54,31											<!-- variavel dinamica (v2) -->
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<div id='maingrid' class="ui grid">													<!-- Grid: divisao do espaço -->
+		<div class="four wide column">													<!-- Coluna tamanho 4 (Menu) -->
+			<div class="ui fluid huge vertical pointing menu">							<!-- Menu Vertical  -->
+				<a class="item" href="../refeicoes/entradas.html">				Entradas</a>
+				<a class="item" href="../refeicoes/pratos.html">					Pratos</a>
+				<a class="item" href="../refeicoes/bebidas.html">				Bebidas</a>
+				<a class="item" href="../refeicoes/sobremesas.html">				Sobremesas</a>
+			</div>
+		</div>
+		<div id='pedido' class="twelve wide stretched column">												<!-- 1º Coluna Principal -->
+			<div id='segmentopedido' class="ui vertical segment">
+				<table class="ui huge seven table">
+				  <thead>
+				    <tr><th class="ten wide">Item</th>
+				    <th class="six wide">Preço</th>
+				  </tr></thead>
+				  <tbody>
+				    <tr>
+				      <td>Bacalhau com Natas</td>
+				      <td>7,99€</td>
+				    </tr>
+				    <tr>
+				      <td>Vinho Tinto</td>
+				      <td>2,00€</td>
+				    </tr>
+				    <tr>
+				      <td>Café</td>
+				      <td>0,50€</td>
+				    </tr>
+				  </tbody>
+				  <tfoot>
+				    <tr><th><b>Total</b></th>
+				    <th><b>12,49€</b></th>
+				  </tr></tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
