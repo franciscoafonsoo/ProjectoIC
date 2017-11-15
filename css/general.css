@@ -9,7 +9,7 @@
 }
 
 #reservasGrid {
-	padding-top: 8em;
+	
 	display: flex;
 	padding-right: 1em;
 	padding-left: 2em;
@@ -20,3 +20,17 @@
 	display: flex;
 }
 
+#indexgrid {
+	padding-top: 5em;
+	display: flex;
+}
+
+#reservasTitles {
+	padding-top: 6em;
+	padding-left: 2em;
+	display: flex;
+}
+
+#confirmarReserva {
+	padding-left: 2em;
+}
