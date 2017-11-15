@@ -40,65 +40,63 @@
 	</header>
 	
 	<div id="reservasGrid" class="ui grid">
-		<div class="sixteen wide column">
-			<div class="ui top attached tabular menu">
-				<a class="item active" data-tab="first">Efectuar Reserva</a>
-				<a class="item" data-tab="second">Confirmar Reserva</a>
-			</div>
-			<div class="ui bottom attached tab segment active" data-tab="first">
-				<div class="ui left aligned basic segment">
-					<form class="ui huge form">
-						<div class="required fields">
-							<div class="field">
-								<label>
-									Data
-								</label>
-								<div class="ui calendar" id="example2">
-									<div class="ui input left icon">
-										<i class="calendar icon"></i>
-										<input type="text" placeholder="Data">
-									</div>
-								</div>
-							</div>
-							<div class="field">
-								<label>Hora</label>
-								<div class="ui calendar" id="example3">
-									<div class="ui input left icon">
-										<i class="time icon"></i>
-										<input type="text" placeholder="Data">
-									</div>
-								</div>
+		<div class="seven wide column">
+			<form class="ui large form">
+				<div class="required fields">
+					<div class="field">
+						<label>
+							Data
+						</label>
+						<div class="ui calendar" id="example2">
+							<div class="ui input left icon">
+								<i class="calendar icon"></i>
+								<input type="text" placeholder="Data">
 							</div>
 						</div>
-						<div class="required fields">
-							<div class="field">
-								<label>Número de Pessoas</label>
-								<div class="ui calendar" id="example3">
-									<div class="ui input left icon">
-										<i class="user icon"></i>
-										<input type="text" placeholder="Nº Pessoas">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="required fields">
-							<div class="field">
-								<label>Número de Telemóvel</label>
-								<div class="ui calendar" id="example3">
-									<div class="ui input left icon">
-										<i class="call icon"></i>
-										<input type="text" placeholder="Nº Telemóvel">
-									</div>
-								</div>
-							</div>
-						</div>
-						<button class="ui blue right alight button" type="submit">Submit</button>
-					</form>
+					</div>
 				</div>
+				<div class="required fields">
+					<div class="field">
+						<label>Hora</label>
+						<div class="ui calendar" id="example3">
+							<div class="ui input left icon">
+								<i class="time icon"></i>
+								<input type="text" placeholder="Data">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="required fields">
+					<div class="field">
+						<label>Número de Pessoas</label>
+						<div class="ui calendar" id="example3">
+							<div class="ui input left icon">
+								<i class="user icon"></i>
+								<input type="text" placeholder="Nº Pessoas">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="required fields">
+					<div class="field">
+						<label>Número de Telemóvel</label>
+						<div class="ui calendar" id="example3">
+							<div class="ui input left icon">
+								<i class="call icon"></i>
+								<input type="text" placeholder="Nº Telemóvel">
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="ui blue right alight button" type="submit">Confirmar</button>
+			</form>
+		</div>
+		<div class='one wide column'>
+			<div class="ui vertical divider">
+				Or
 			</div>
 		</div>
-		<div class="ui massive bottom attached tab segment" data-tab="second">
-			<div class="ui left aligned basic segment">
+			<div class="seven wide column">
 				<div class="ui left icon action input">
 					<i class="call icon"></i>
 					<input type="text" placeholder="Nº Telemóvel">
@@ -115,6 +113,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
