@@ -23,8 +23,8 @@
 /* Reservas */
 
 #reservasTitles {
-	padding-top: 6em;
-	padding-left: 3em;
+	padding-top: 8em;
+	padding-left: 5em;
 	padding-right: 1em;
 	display: flex;
 }
@@ -32,6 +32,10 @@
 #reservasGrid {
 	
 	display: flex;
-	padding-right: 1em;
-	padding-left: 3em;
+	padding-right: 0em;
+	padding-left: 5em;
+}
+
+.ui.huge.table {
+	position: fixed;
 }

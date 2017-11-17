@@ -50,10 +50,32 @@ $(function(){
 		}
 	});
 
-	$('.button').click( function function_name(argument) {
-		$('#cenas').modal('show');
-	});
+	$('.button').click( function () {
+		if( $('#efectuar').form('is valid')) {
 
+			var uniq = 'id' + (new Date()).getTime();
+			var data 		= document.getElementById("data").value;
+			var pessoas 	= document.getElementById("pessoas").value;
+			var hora 		= document.getElementById("hora").value;
+			var telemovel 	= document.getElementById("telemovel").value;
+
+			$('#contentData').text('Data da Reserva: ' + data);
+			$('#contentHora').text('Hora da Reserva: ' + hora);
+			$('#contentPessoas').text('Nº de Pessoas: ' + pessoas);
+			$('#contentTelemovel').text('Nº de telemovel: ' + telemovel);
+
+			var dict = {data: data, pessoas: pessoas, hora: hora, telemovel: telemovel}
+
+			localStorage.setItem(uniq, JSON.stringify(dict));
+
+  			$('#cenas').modal({
+  			  onApprove : function() {
+  			    
+  			  }
+  			})
+  			.modal('show');
+		}
+	});
 
 
 
