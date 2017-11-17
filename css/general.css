@@ -8,12 +8,7 @@
 	padding-right: 1em;
 }
 
-#reservasGrid {
-	
-	display: flex;
-	padding-right: 1em;
-	padding-left: 2em;
-}
+
 
 #secondarymenu {
 	margin-top: 5em;
@@ -25,8 +20,18 @@
 	display: flex;
 }
 
+/* Reservas */
+
 #reservasTitles {
 	padding-top: 6em;
-	padding-left: 2em;
+	padding-left: 3em;
+	padding-right: 1em;
 	display: flex;
+}
+
+#reservasGrid {
+	
+	display: flex;
+	padding-right: 1em;
+	padding-left: 3em;
 }

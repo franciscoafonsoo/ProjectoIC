@@ -49,7 +49,7 @@
 	</div>
 	<div id="reservasGrid" class="ui middle aligned grid">
 		<div class="seven wide column">
-			<form class="ui large form">
+			<form id="efectuar" class="ui large form">
 				<div class="required fields">
 					<div class="field">
 						<label>
@@ -58,7 +58,7 @@
 						<div class="ui calendar" id="example2">
 							<div class="ui input left icon">
 								<i class="calendar icon"></i>
-								<input type="text" placeholder="Data">
+								<input id="data" type="text" placeholder="Data">
 							</div>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 						<div class="ui calendar" id="example3">
 							<div class="ui input left icon">
 								<i class="time icon"></i>
-								<input type="text" placeholder="Data">
+								<input id="hora" type="text" placeholder="Hora">
 							</div>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 						<div class="ui calendar" id="example3">
 							<div class="ui input left icon">
 								<i class="user icon"></i>
-								<input type="text" placeholder="Nº Pessoas">
+								<input id="pessoas" type="text" placeholder="Nº Pessoas">
 							</div>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 						<div class="ui calendar" id="example3">
 							<div class="ui input left icon">
 								<i class="call icon"></i>
-								<input type="text" placeholder="Nº Telemóvel">
+								<input id="telemovel" type="text" placeholder="Nº Telemóvel">
 							</div>
 						</div>
 					</div>
@@ -116,11 +116,30 @@
 				<div class="fields">
 					<div class="ui left icon action input">
 						<i class="calendar icon"></i>
-						<input type="text" placeholder="Nº Reserva">
+						<input id="idreserva" type="text" placeholder="Nº Reserva">
 						<div class="ui blue submit button">Confirmar</div>
 					</div>
 				</div>
 			</form>
+		</div>
+		<div id="cenas" class="ui basic modal">
+			<div class="ui icon header">
+				<i class="archive icon"></i>
+				Archive Old Messages
+			</div>
+			<div class="content">
+				<p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+			</div>
+			<div class="actions">
+				<div class="ui red basic cancel inverted button">
+					<i class="remove icon"></i>
+					No
+				</div>
+				<div class="ui green ok inverted button">
+					<i class="checkmark icon"></i>
+					Yes
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
