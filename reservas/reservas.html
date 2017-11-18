@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/calendar.min.css">
 	<!-- Should always be the last -->
 	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/reservas.js"></script>
 </head>
 
 <body>																			<!-- Body -->
@@ -122,7 +123,7 @@
 				</div>
 			</form>
 		</div>
-		<div id="cenas" class="ui basic modal">
+		<div id="cenas" class="ui coupled basic modal">
 			<div class="ui icon header">
 				<i class="warning icon"></i>
 				Confirme os dados da reserva:
@@ -147,6 +148,18 @@
 				<div class="ui green ok inverted button">
 					<i class="checkmark icon"></i>
 					Yes
+				</div>
+			</div>
+		</div>
+		<div id="confirmado" class="ui coupled basic modal">
+			<div class="ui icon header">
+				<i class="warning icon"></i>
+				Dados confirmados
+			</div>
+			<div class="actions">
+				<div class="ui green ok inverted button">
+					<i class="checkmark icon"></i>
+					Voltar à Página inicial.
 				</div>
 			</div>
 		</div>
