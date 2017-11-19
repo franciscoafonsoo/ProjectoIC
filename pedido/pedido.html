@@ -26,7 +26,7 @@
 			</div>
 			<div class="right menu">											<!-- right menu -->
 				<a class="ui item"><i class="search icon"></i></a>				<!-- search -->
-				<a href='pedido.html' class="ui teal active item"> 				<!-- pedido (v2: modify link in js) -->
+				<a id="pedido" href='pedido.html' class="ui teal active item"> 				<!-- pedido (v2: modify link in js) -->
 					<i class="shop icon"></i>
 					Meu Pedido: $54,31											<!-- variavel dinamica (v2) -->
 				</a>
@@ -43,7 +43,7 @@
 				<a class="item" href="../refeicoes/sobremesas.html">				Sobremesas</a>
 			</div>
 		</div>
-		<div id='pedido' class="twelve wide stretched column">												<!-- 1º Coluna Principal -->
+		<div class="twelve wide stretched column">												<!-- 1º Coluna Principal -->
 			<div id='segmentopedido' class="ui vertical segment">
 				<table class="ui huge seven table">
 				  <thead>
@@ -51,22 +51,10 @@
 				    <th class="six wide">Preço</th>
 				  </tr></thead>
 				  <tbody>
-				    <tr>
-				      <td>Bacalhau com Natas</td>
-				      <td>7,99€</td>
-				    </tr>
-				    <tr>
-				      <td>Vinho Tinto</td>
-				      <td>2,00€</td>
-				    </tr>
-				    <tr>
-				      <td>Café</td>
-				      <td>0,50€</td>
-				    </tr>
 				  </tbody>
 				  <tfoot>
 				    <tr><th><b>Total</b></th>
-				    <th><b>12,49€</b></th>
+				    <th id="total"><b></b></th>
 				  </tr></tfoot>
 				</table>
 			</div>
