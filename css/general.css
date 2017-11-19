@@ -35,3 +35,7 @@
 	padding-right: 0em;
 	padding-left: 5em;
 }
+
+#extra {
+	display: none;
+}

@@ -50,8 +50,8 @@ function pulse(unique) {
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	var name 	= $("#" + unique).find(".thirteen.wide.column").html()
 	var price	= $("#" + unique).find(".right.aligned.column").html()
-	var extra = $("#" + unique).find("p").html()
-	var imagem = $("#" + unique).find(".ui.large.fluid.image").attr("src")
+	var extra 	= $("#" + unique).find("p").html()
+	var imagem 	= $("#" + unique).find(".ui.large.fluid.image").attr("src")
 
 	// por info necessaria no modal
 	$('#contentProduto').html(name);
