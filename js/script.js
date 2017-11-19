@@ -26,27 +26,40 @@ function pulse(unique) {
 	// animaçãos
 	$("#" + unique).transition('pulse')
 
-	// parse da refeicao
+	// parse da info necessaria
 	var already = JSON.parse(sessionStorage.getItem('refeicao'))
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	var name 	= $("#" + unique).find(".thirteen.wide.column").html()
 	var price	= $("#" + unique).find(".right.aligned.column").html()
+	var extra = $("#" + unique).find("p").html()
+	var imagem = $("#" + unique).find(".ui.large.fluid.image").attr("src")
 
-	conta.total += parseFloat(price.slice(0,-1))
+	// por info necessaria no modal
+	$('#contentProduto').html(name);
+	$('#contentPreco').html(price);
+	$('#contentConstituintes').html(extra);
+	$('#contentImagem').attr('src', "" + imagem);
 
-	// obter os valores da div actual & adiciona ao json
-	already.items.push({
-		name: name,
-		price: price,
-		qty: 1
-	})
+	$('#algo').modal({
+		onApprove : function() {
+			// se confirmar, parse do valor
+			conta.total += parseFloat(price.slice(0,-1))
 
-	// guarda item
-	sessionStorage.setItem('refeicao', JSON.stringify(already))
-	sessionStorage.setItem('total', JSON.stringify(conta))
+			// adiciona os valores ao json
+			already.items.push({
+				name: name,
+				price: price,
+				qty: 1
+			})
 
-	// update table	
-	$('.ui.huge.table').append('<tr><td>' + name + '</td>><td>' + price + '</td></tr>')
-	$('#total').text(conta.total + '€')
-	$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
+			// guarda item no sessionStorage
+			sessionStorage.setItem('refeicao', JSON.stringify(already))
+			sessionStorage.setItem('total', JSON.stringify(conta))
+
+			// update table	& pedido
+			$('.ui.huge.table').append('<tr><td>' + name + '</td>><td>' + price + '</td></tr>')
+			$('#total').text(conta.total + '€')
+			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
+	  }
+	}).modal('show');
 }
