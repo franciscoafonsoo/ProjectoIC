@@ -1,6 +1,12 @@
 $(function(){
 
-	// criar variaveis para refeicao
+	/*
+	1. Começar pedido. Começa em qualquer página (modificar para "nova refeição" soon)
+
+		- Verificar se existe a chave 'refeicao' na sessionStorage.
+			- Se sim: Obtem e faz update aos valores na página
+			- Se não: Cria os valores e guarda em sessionStorage
+ 	*/
 
 	if(!sessionStorage.getItem('refeicao')) {
 		sessionStorage.setItem('refeicao', JSON.stringify({items: []}))
@@ -9,7 +15,7 @@ $(function(){
 	}
 	else {
 		var already = JSON.parse(sessionStorage.getItem('refeicao'))
-		var conta = JSON.parse(sessionStorage.getItem('total'))
+		var conta 	= JSON.parse(sessionStorage.getItem('total'))
 
 		jQuery.each(already.items, function (index, item) {
 			// load table
@@ -23,7 +29,20 @@ $(function(){
 
 function pulse(unique) {
 
-	// animaçãos
+	/*
+	2. Adicionar ao Carrinho:
+
+		- Parse da informação existente na sessionStorage
+		- Parse da informação da div clicada
+			- nome, preço, img src.
+		- Colocar a informação necessária no modal
+		- Se aprovar:
+			- Incrementar total do pedido
+			- Adicionar entrada à sessionStorage
+			- Fazer update às tabelas e ao pedido
+ 	*/
+
+	// animação da div
 	$("#" + unique).transition('pulse')
 
 	// parse da info necessaria
