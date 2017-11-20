@@ -60,7 +60,7 @@ $(function(){
 	})
 
 	// efectuar reserva e confirmar
-	$('.button').click( function () {
+	$('#confirmar').click( function () {
 		if( $('#efectuar').form('is valid')) {
 
 			var already = JSON.parse(localStorage.getItem('reservas'))
@@ -90,7 +90,7 @@ $(function(){
   			  	// se confirmar os dados, guarda na localStorage
   			    localStorage.setItem('reservas', JSON.stringify(already))
   			    localStorage.setItem('id', JSON.stringify(increm))
-  			    alert('Reserva Efectuada')
+  			    alert('Reserva Efectuada.\nNº da Reserva: ' + increm.total)
 				window.location.replace("../index.html")
   			    
   			  }
