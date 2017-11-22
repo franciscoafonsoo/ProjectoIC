@@ -7,26 +7,22 @@ $(function(){
 			- Se sim: Obtem e faz update aos valores na página
 			- Se não: Cria os valores e guarda em sessionStorage
  	*/
-
 	if(!localStorage.getItem('reservas')) {
 		localStorage.setItem('reservas', JSON.stringify({items: []}))
 		localStorage.setItem('id', JSON.stringify({total: 0}))
 	}
 
 	// Calendario
-
 	$('#example2').calendar({
 		type: 'date'
 	})
 
 	// Hora
-
 	$('#example3').calendar({
 		type: 'time'
 	})
 
 	// Form Reservas
-
 	$('#efectuar').form({
 		fields: {
 			data: {
@@ -59,8 +55,22 @@ $(function(){
 		}
 	})
 
+	$('#confirmarTelemovelForm').form({
+		fields: {
+			cTelemovel: {
+				identifier: 'cTelemovel',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'Por favor, escolha um'
+				}
+				]
+			}
+		}
+	})
+
 	// efectuar reserva e confirmar
-	$('#confirmar').click( function () {
+	$('#efectuarReserva').click( function () {
 		if( $('#efectuar').form('is valid')) {
 
 			var already = JSON.parse(localStorage.getItem('reservas'))
@@ -81,20 +91,79 @@ $(function(){
 				id: increm.total, 
 				data: data, 
 				pessoas: pessoas, 
-				hora: hora, telemovel: telemovel
+				hora: hora, 
+				telemovel: telemovel
 			})
 
   			$('#cenas').modal({
   			  onApprove : function() {
-
   			  	// se confirmar os dados, guarda na localStorage
   			    localStorage.setItem('reservas', JSON.stringify(already))
   			    localStorage.setItem('id', JSON.stringify(increm))
   			    alert('Reserva Efectuada.\nNº da Reserva: ' + increm.total)
 				window.location.replace("../index.html")
-  			    
-  			  }
+				}
   			}).modal('show')
 		}
 	})
+
+	// efectuar reserva e confirmar
+	$('#confirmarTelemovel').click( function () {
+		if( $('#confirmarTelemovelForm').form('is valid')) {
+			// get reservas
+			var rs = JSON.parse(localStorage.getItem('reservas'))
+			// get telemovel
+			var tlm = document.getElementById("cTelemovel").value
+			// check if tlm exists in reservas items
+			var check = getTlm(rs.items, tlm)
+			// if not, remove extra elements in DOM, and warn 
+			if (jQuery.isEmptyObject(check)) {
+				// primeiro modal
+				$('#modaltitulo').text('Não existe nenhuma reserva com este Telemovel.')
+				hideOrShowModal('hide')
+			}
+			else {
+				$('#contentHora').text('Hora da Reserva: ' + check[0].hora)
+				$('#contentHora').text('Hora da Reserva: ' + check[0].hora)
+				$('#contentPessoas').text('Nº de Pessoas: ' + check[0].pessoas)
+				$('#contentTelemovel').text('Nº de Telemóvel: ' + check[0].telemovel)
+			}
+			$('#cenas').modal({
+				onApprove : function() {
+					// se confirmar os dados, remover localStorage 
+					window.location.replace("../index.html")
+				},
+				onDeny : function () {
+					setTimeout(function() { hideOrShowModal('show') }, 10000)
+				}
+			}).modal('show')
+		}
+	})
+
+	/* 
+	 * funcoes auxiliares 
+	 */	
+
+	// obter array com matching 'tlm', se existir
+	function getTlm(data, tlm) {
+		return data.filter(
+			function(data){ return data.telemovel == tlm }
+		);
+	  }
+	
+	// esconder elementos do modal de confirmacao
+	function hideOrShowModal(parm) {
+		if (parm === 'show') {
+			$('#contentHora').show()
+			$('#contentHora').show()
+			$('#contentPessoas').show()
+			$('#contentTelemovel').show()
+		}
+		else if (parm === 'hide') {
+			$('#contentHora').hide()
+			$('#contentHora').hide()
+			$('#contentPessoas').hide()
+			$('#contentTelemovel').hide()
+		}
+	}
 })

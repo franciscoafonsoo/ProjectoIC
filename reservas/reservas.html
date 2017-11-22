@@ -32,9 +32,9 @@
 			</div>
 			<div class="right menu">											<!-- right menu -->
 				<a class="ui item"><i class="search icon"></i></a>				<!-- search -->
-				<a href='../pedido/pedido.html' class="ui teal active item"> 	<!-- pedido (v2: modify link in js) -->
+				<a id="pedido" href='../pedido/pedido.html' class="ui teal active item"> 	<!-- pedido (v2: modify link in js) -->
 					<i class="shop icon"></i>
-					Meu Pedido: $54,31											<!-- variavel dinamica (v2) -->
+					Meu Pedido: 0€											<!-- variavel dinamica (v2) -->
 				</a>
 			</div>
 		</div>
@@ -97,28 +97,30 @@
 						</div>
 					</div>
 				</div>
-				<button id='confirmar' class="ui blue right alight button">Confirmar</button>
+				<button id='efectuarReserva' class="ui blue right alight button">Confirmar</button>
 			</form>
 		</div>
 		<div class='one wide column'>
 		</div>
 		<div class="seven wide column">
-			<form id="confirme" class="ui large form">
-				<div class="field">
+			<form id="confirmarTelemovelForm" class="ui large form" onSubmit="return false;">
+				<div class="required field">
 					<div class="ui left icon action center input">
 						<i class="call icon"></i>
-						<input type="text" placeholder="Nº Telemóvel">
-						<div class="ui blue button">Confirmar</div>
+						<input id='cTelemovel' type="text" placeholder="Nº Telemóvel">
+						<div id="confirmarTelemovel" class="ui blue button">Confirmar</div>
 					</div>
 				</div>
-					<div class="ui horizontal section divider">
-						Ou
-					</div>
-				<div class="field">
-					<div class="ui left icon action input">
+			</form>
+			<div class="ui horizontal section divider">
+				Ou
+			</div>
+			<form id="confirmarIdForm" class="ui large form" onSubmit="return false;">
+				<div class="required field">
+					<div class="ui input left icon action ">
 						<i class="calendar icon"></i>
-						<input id="idreserva" type="text" placeholder="Nº Reserva">
-						<div class="ui blue button">Confirmar</div>
+						<input id="cid" type="text" placeholder="Nº Reserva">
+						<div id="confirmarId" class="ui blue button">Confirmar</div>
 					</div>
 				</div>
 			</form>
