@@ -43,6 +43,16 @@ $(function(){
 					prompt : 'Por favor, escolha um número de pessoas.'
 				}
 				]
+			},
+			telemovel: {
+				identifier: 'telemovel',
+				optional   : true,
+				rules: [
+				{
+					type   : 'exactLength[9]',
+					prompt : 'Por favor, escolha um número de pessoas.'
+				}
+				]
 			}
 		}
 	})
@@ -144,11 +154,12 @@ $(function(){
 				$('#modaltitulo').text('Não existe nenhuma reserva com este Telemóvel')
 			}
 			else {
-				$('#modaltitulo').text('Não existe nenhuma reserva com este Id')
+				$('#modaltitulo').text('Não existe nenhuma reserva com este número')
 			}
 			hideOrShowModal('hide')
 		}
 		else {
+			$('#modaltitulo').text('Confirme os dados da reserva:')
 			$('#contentData').text('Data da Reserva: ' + check[0].data)
 			$('#contentHora').text('Hora da Reserva: ' + check[0].hora)
 			$('#contentPessoas').text('Nº de Pessoas: ' + check[0].pessoas)
@@ -156,21 +167,21 @@ $(function(){
 		}	
 		$('#bmodal').modal({
 			onApprove : function() {
-				// se confirmar os dados, remover localStorage 
+				// TODO: se confirmar os dados, remover localStorage 
 				window.location.replace("../refeicoes/entradas.html")
 			},
 			onDeny : function () {
-				setTimeout(function() { hideOrShowModal('show') }, 10000)
+				setTimeout(function() { hideOrShowModal('show') }, 1000)
 			}
 		}).modal('show')
 	}
-	// obter array com matching 'tlm', se existir
+	// obter array com 'tlm', se existir
 	function getTlm(data, tlm) {
 		return data.filter(
 			function(data){ return data.telemovel == tlm }
 		);
 	  }
-	// obter array com matching 'tlm', se existir
+	// obter array com 'tlm', se existir
 	function getId(data, id) {
 		return data.filter(
 			function(data){ return data.id == id }
