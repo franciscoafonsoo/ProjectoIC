@@ -25,6 +25,30 @@ $(function(){
 		})
 	}
 
+	setTimeout(function() { 
+		if (already.items.length > 0)
+			$('#cancelar').transition('fade')
+	}, 2000)
+
+	$('#pagamento').click( function () {
+		$('#pmodal').modal('show')
+	})
+
+	$('#dinheiro').click( function () {
+		window.location.href = "../pagamento/dinheiro.html";
+	})
+
+	$('#mbway').click( function () {
+		window.location.href = "../pagamento/mbway.html";
+	})
+
+	$('#multibanco').click( function () {
+		window.location.href = "../pagamento/multibanco.html";
+	})
+
+	$('#transferencia').click( function () {
+		window.location.href = "../pagamento/transferencia.html";
+	})
 })
 
 function pulse(unique) {

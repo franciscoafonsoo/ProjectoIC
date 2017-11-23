@@ -41,10 +41,6 @@
 				<a class="item" href="../refeicoes/bebidas.html">				Bebidas</a>
 				<a class="item" href="../refeicoes/sobremesas.html">			Sobremesas</a>
 			</div>
-			<button class="ui right labeled icon teal fluid button">
-				<i class="right arrow icon"></i>
-				Efectuar Pagamento
-			</button>
 		</div>
 		<div class="twelve wide stretched column">												<!-- 1º Coluna Principal -->
 			<div id='segmentopedido' class="ui vertical segment">
@@ -60,6 +56,53 @@
 				    <th id="total"><b></b></th>
 				  </tr></tfoot>
 				</table>
+			</div>
+		</div>
+
+		<div class="four column row">
+			<div class="left floated column">
+				<div id='cancelar'>
+					<button onClick="javascript:history.back();" class="ui left labeled icon black fluid big button">
+						<i class="left arrow icon"></i>
+						Cancelar
+					</button>
+					<br>
+					<div class="ui segment">
+						<p>Tem até o pedido começar a ser feito para cancelar</p>
+					</div>
+				</div>
+			</div>
+			<div class="right floated column">
+				<button id='pagamento' class="ui right labeled icon teal fluid big button">
+					<i class="right arrow icon"></i>
+					Efectuar Pagamento
+				</button>
+			</div>
+		</div>
+	</div>
+	<div id='pmodal' class="ui basic modal">
+		<div class="ui icon header">
+			Método de pagamento:
+		</div>
+		<div class="content">
+			<p>Escolha o metódo que pretende para pagar o pedido:</p>
+		</div>
+		<div class="centered actions">
+			<div id="dinheiro" class="ui basic inverted button">
+				<i class="euro icon"></i>
+				Dinheiro
+			</div>
+			<div id="mbway" class="ui basic inverted button">
+				<i class="google wallet icon"></i>
+				MB Way
+			</div>
+			<div id="multibanco" class="ui basic inverted button">
+				<i class="credit card alternative icon"></i>
+				Multibanco
+			</div>
+			<div id="transferencia" class="ui basic inverted button">
+				<i class="credit card icon"></i>
+				Transferencia
 			</div>
 		</div>
 	</div>
