@@ -1,5 +1,4 @@
 $(function(){
-
 	/*
 	1. Começar pedido. Começa em qualquer página
 
@@ -11,13 +10,10 @@ $(function(){
 		localStorage.setItem('reservas', JSON.stringify({items: []}))
 		localStorage.setItem('id', JSON.stringify({total: 0}))
 	}
-
 	// Calendario
 	$('#example2').calendar({type: 'date'})
-
 	// Hora
 	$('#example3').calendar({type: 'time'})
-
 	// Form Reservas
 	$('#efectuar').form({
 		fields: {
@@ -50,7 +46,6 @@ $(function(){
 			}
 		}
 	})
-
 	// Form confirmar com telemovel
 	$('#confirmarTelemovelForm').form({
 		fields: {
@@ -65,7 +60,6 @@ $(function(){
 			}
 		}
 	})
-
 	// Form confirmar com id
 	$('#confirmarIdForm').form({
 		fields: {
@@ -80,7 +74,6 @@ $(function(){
 			}
 		}
 	})
-
 	// efectuar reserva e confirmar
 	$('#efectuarReserva').click( function () {
 		if( $('#efectuar').form('is valid')) {
@@ -118,25 +111,21 @@ $(function(){
   			}).modal('show')
 		}
 	})
-
 	// confirmar reserva com telemovel
 	$('#confirmarTelemovel').click( function () {
 		if( $('#confirmarTelemovelForm').form('is valid')) {
 			confirmarReserva('cTelemovel')
 		}
 	})
-
 	// confirmar reserva com id
 	$('#confirmarId').click( function () {
 		if( $('#confirmarIdForm').form('is valid')) {
 			confirmarReserva('cid')
 		}
 	})
-
 	/* 
 	 * funcoes auxiliares 
 	 */	
-
 	function confirmarReserva(id) {
 		// get reservas
 		var rs = JSON.parse(localStorage.getItem('reservas'))
@@ -175,21 +164,18 @@ $(function(){
 			}
 		}).modal('show')
 	}
-
 	// obter array com matching 'tlm', se existir
 	function getTlm(data, tlm) {
 		return data.filter(
 			function(data){ return data.telemovel == tlm }
 		);
 	  }
-
 	// obter array com matching 'tlm', se existir
 	function getId(data, id) {
 		return data.filter(
 			function(data){ return data.id == id }
 		);
 	}
-
 	// esconder elementos do modal de confirmacao
 	function hideOrShowModal(parm) {
 		if (parm === 'show') {
