@@ -28,7 +28,7 @@ $(function(){
 	setTimeout(function() { 
 		if (already.items.length > 0)
 			$('#cancelar').transition('fade')
-	}, 2000)
+	}, 10000)
 
 	$('#pagamento').click( function () {
 		$('#pmodal').modal('show')

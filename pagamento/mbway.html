@@ -6,15 +6,20 @@
 <!-- 									-->
 <head>
 	<title>MInt - Your Menu, Reinvented!</title>
-	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/general.css">
+	<meta charset="UTF-8">
 	<script
 	src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
+	<!-- Semantic UI Calendar      -->
+	<script type="text/javascript" src="../js/calendar.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/calendar.min.css">
+	<!-- Should always be the last -->
 	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/pagamento.js"></script>
 </head>
 <body>
 	<header>
@@ -26,10 +31,6 @@
 			</div>
 			<div class="right menu">										<!-- right menu -->
 				<a class="ui item"><i class="search icon"></i></a>			<!-- search -->
-				<a id="pedido" href='../pedido/pedido.html' class="ui teal active item"> 	<!-- pedido (v2: modify link in js) -->
-					<i class="shop icon"></i>
-					Meu Pedido: 0€											<!-- variavel dinamica (v2) -->
-				</a>
 			</div>
 		</div>
 	</header>
@@ -63,6 +64,48 @@
 					  </tr>
 				</tfoot>
 			</table>
+		</div>
+		<div class="two wide column"></div>
+		<div id="colunadinheiro" class="seven wide column">
+			<div class="ui vertical segment">
+				<h1>Insira o seu número de Telemóvel:</h1>		
+				<div class="ui message">
+					<div class="header">
+						Atenção:
+					</div>
+					<p>Deve inserir um número associado a uma conta de MBWay válida. </p>
+				</div>
+				<form id="mbwayForm" class="ui large form" onSubmit="return false;">
+					<div class="required field">
+						<div class="ui left icon action center fluid input">
+							<i class="call icon"></i>
+							<input id='cTelemovel' type="text" placeholder="Nº Telemóvel">
+							<div id="confirmarTelemovel" class="ui teal button">Confirmar</div>
+						</div>
+					</div>
+					<div class="ui hidden error message">
+						<div class="header">
+							Erro:
+						</div>
+						<p>Por favor, insira um número válido. </p>
+					</div>
+					<div id='done' class="ui hidden icon message">
+						<i class="checkmark icon"></i>
+						<div class="header">
+							Feito. Refeição paga.
+						</div>
+					</div>
+					<div id='waiting' class="ui hidden icon message">
+						<i class="notched circle loading icon"></i>
+						<div class="content">
+							<div class="header">
+								Por favor, espere.
+							</div>
+							<p>Estamos a verificar o seu pedido.</p>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

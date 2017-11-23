@@ -51,7 +51,7 @@
 	</div>
 	<div id="reservasGrid" class="ui middle aligned grid">
 		<div class="seven wide column">
-			<form id="efectuar" class="ui large form" onSubmit="return false;">
+			<form id="efectuar" class="ui large form error" onSubmit="return false;">
 				<div class="required fields">
 					<div class="field">
 						<label>
@@ -98,7 +98,8 @@
 						</div>
 					</div>
 				</div>
-				<button id='efectuarReserva' class="ui blue right alight button">Confirmar</button>
+				<button id='efectuarReserva' class="ui teal right alight button">Confirmar</button>
+				<div class="ui error message"></div>
 			</form>
 		</div>
 		<div class='one wide column'>
@@ -109,7 +110,7 @@
 					<div class="ui left icon action center input">
 						<i class="call icon"></i>
 						<input id='cTelemovel' type="text" placeholder="Nº Telemóvel">
-						<div id="confirmarTelemovel" class="ui blue button">Confirmar</div>
+						<div id="confirmarTelemovel" class="ui teal button">Confirmar</div>
 					</div>
 				</div>
 			</form>
@@ -121,7 +122,7 @@
 					<div class="ui input left icon action ">
 						<i class="calendar icon"></i>
 						<input id="cid" type="text" placeholder="Nº Reserva">
-						<div id="confirmarId" class="ui blue button">Confirmar</div>
+						<div id="confirmarId" class="ui teal button">Confirmar</div>
 					</div>
 				</div>
 			</form>
