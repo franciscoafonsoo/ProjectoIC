@@ -19,6 +19,10 @@
 	display: flex;
 }
 
+.remove.icon {
+	margin-left: 38%
+}
+
 /* Reservas */
 
 #reservasTitles {
@@ -37,11 +41,7 @@
 
 #extra {
 	display: none;
-}
-
-#colunadireita {
-	
-}
+}	
 
 #colunadinheiro {
 	padding-top: 2em;

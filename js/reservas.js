@@ -1,6 +1,6 @@
 $(function(){
 	/*
-	1. Começar pedido. Começa em qualquer página
+	1. Começar pedido.
 
 		- Verificar se existe a chave 'refeicao' na sessionStorage.
 			- Se sim: Obtem e faz update aos valores na página

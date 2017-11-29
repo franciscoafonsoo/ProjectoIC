@@ -1,7 +1,7 @@
 $(function(){
 
 	/*
-	1. Começar pedido. Começa em qualquer página (modificar para "nova refeição" soon)
+	1. Começar pedido. Começa em qualquer página.
 
 		- Verificar se existe a chave 'refeicao' na sessionStorage.
 			- Se sim: Obtem e faz update aos valores na página
@@ -9,7 +9,7 @@ $(function(){
  	*/
 
 	if(!sessionStorage.getItem('refeicao')) {
-		sessionStorage.setItem('refeicao', JSON.stringify({items: []}))
+		sessionStorage.setItem('refeicao', JSON.stringify({items: [], id: []}))
 		sessionStorage.setItem('total', JSON.stringify({total: 0}))
 		$('#pedido').html('<i class="shop icon"></i>Meu Pedido: 0€')
 	}
@@ -18,22 +18,20 @@ $(function(){
 		var conta 	= JSON.parse(sessionStorage.getItem('total'))
 
 		jQuery.each(already.items, function (index, item) {
-			// load table
-			$('.ui.huge.table').append('<tr><td>' + item.name + '</td>><td>' + item.price + '</td></tr>')
+			// insert missing lines in the table
+			var cenas = '<tr class="' + already.id[index] + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + already.id[index] + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+			$('.ui.huge.table').append(cenas)
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
 
-	setTimeout(function() { 
-		if (already.items.length > 0)
-			$('#cancelar').transition('fade')
-	}, 10000)
-
+	// popup de tipo de pagamento
 	$('#pagamento').click( function () {
 		$('#pmodal').modal('show')
 	})
 
+	// os vários redirects para as páginas nos botões do modal
 	$('#dinheiro').click( function () {
 		window.location.href = "../pagamento/dinheiro.html";
 	})
@@ -49,6 +47,7 @@ $(function(){
 	$('#transferencia').click( function () {
 		window.location.href = "../pagamento/transferencia.html";
 	})
+
 })
 
 function pulse(unique) {
@@ -60,7 +59,7 @@ function pulse(unique) {
 		- Parse da informação da div clicada
 			- nome, preço, img src.
 		- Colocar a informação necessária no modal
-		- Se aprovar:
+		- Se for aprovado:
 			- Incrementar total do pedido
 			- Adicionar entrada à sessionStorage
 			- Fazer update às tabelas e ao pedido
@@ -76,6 +75,10 @@ function pulse(unique) {
 	var price	= $("#" + unique).find(".right.aligned.column").html()
 	var extra 	= $("#" + unique).find("p").html()
 	var imagem 	= $("#" + unique).find(".ui.large.fluid.image").attr("src")
+	// geracao de um id unico e verificar se já existe um id igual
+	already.id = getRandomInt(already.id)
+	// id gerado alteriormente (ultimo a ser adiciona ao array)
+	var usar = already.id[already.id.length - 1];
 
 	// por info necessaria no modal
 	$('#contentProduto').html(name);
@@ -87,22 +90,60 @@ function pulse(unique) {
 		onApprove : function() {
 			// se confirmar, parse do valor
 			conta.total += parseFloat(price.slice(0,-1))
+			// valor só com duas casas decimais
+			conta.total.toFixed(2)
 
 			// adiciona os valores ao json
 			already.items.push({
 				name: name,
 				price: price,
-				qty: 1
+				qty: 1,
+				identify: usar
 			})
 
 			// guarda item no sessionStorage
 			sessionStorage.setItem('refeicao', JSON.stringify(already))
 			sessionStorage.setItem('total', JSON.stringify(conta))
 
+			// linha a adicionar à tabela
+			var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td>' + price + '</td><td><i id="' + usar + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+
 			// update table	& pedido
-			$('.ui.huge.table').append('<tr><td>' + name + '</td>><td>' + price + '</td></tr>')
+			$('.ui.huge.table').append(grande)
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 	  }
 	}).modal('show');
+}
+
+function remove(unique) {
+	var already = JSON.parse(sessionStorage.getItem('refeicao'))
+	var conta 	= JSON.parse(sessionStorage.getItem('total'))
+	// remover item
+	cenas = []
+	$("." + unique).remove()
+	// remover da lista
+	// ACABAR
+	jQuery.each(already.items, function (index, item) {
+		if (item.identify === unique) {
+			already.items[index]
+		}
+	})
+}
+
+// função auxiliar para obter número pseudo-aleatório, não igual a nenhum no array dado.
+function getRandomInt(list) {
+	var min = 0
+	var max = 10000
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	//The maximum is exclusive and the minimum is inclusive
+	var temp = Math.floor(Math.random() * (max - min)) + min
+
+	while(jQuery.inArray(temp,list) != -1) {
+		// se for igual, repetir. isto deve evitar alguma colisão que surja.
+		temp = Math.floor(Math.random() * (max - min)) + min
+	}
+	list.push(temp)
+	return list
 }
