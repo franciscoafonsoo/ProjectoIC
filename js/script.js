@@ -117,18 +117,29 @@ function pulse(unique) {
 }
 
 function remove(unique) {
+	// parse da info necessaria
 	var already = JSON.parse(sessionStorage.getItem('refeicao'))
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	// remover item
-	cenas = []
 	$("." + unique).remove()
 	// remover da lista
-	// ACABAR
 	jQuery.each(already.items, function (index, item) {
-		if (item.identify === unique) {
-			already.items[index]
+		console.log(item.identify)
+		console.log(unique)
+		if (item.identify == unique) {
+			// update total
+			conta.total -= parseFloat(item.price.slice(0,-1))
+			// valor só com duas casas decimais
+			conta.total.toFixed(2)
+			already.items = already.items.filter(item => item !== unique)
 		}
 	})
+	
+	// guarda item no sessionStorage
+	sessionStorage.setItem('refeicao', JSON.stringify(already))
+	sessionStorage.setItem('total', JSON.stringify(conta))
+	$('#total').text(conta.total + '€')
+	$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 }
 
 // função auxiliar para obter número pseudo-aleatório, não igual a nenhum no array dado.
