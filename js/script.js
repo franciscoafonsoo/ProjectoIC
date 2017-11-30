@@ -19,7 +19,7 @@ $(function(){
 
 		jQuery.each(already.items, function (index, item) {
 			// insert missing lines in the table
-			var cenas = '<tr class="' + already.id[index] + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + already.id[index] + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + already.id[index] + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
 			$('.ui.huge.table').append(cenas)
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
@@ -91,7 +91,7 @@ function pulse(unique) {
 			// se confirmar, parse do valor
 			conta.total += parseFloat(price.slice(0,-1))
 			// valor só com duas casas decimais
-			conta.total.toFixed(2)
+			conta.total.toFixed(3)
 
 			// adiciona os valores ao json
 			already.items.push({
@@ -124,22 +124,21 @@ function remove(unique) {
 	$("." + unique).remove()
 	// remover da lista
 	jQuery.each(already.items, function (index, item) {
-		console.log(item.identify)
-		console.log(unique)
 		if (item.identify == unique) {
 			// update total
 			conta.total -= parseFloat(item.price.slice(0,-1))
 			// valor só com duas casas decimais
-			conta.total.toFixed(2)
-			already.items = already.items.filter(item => item !== unique)
+			conta.total.toFixed(3)
+			// remove element from array
+			already.items.splice(index,1);
+			
+			// save to sessionStorage
+			sessionStorage.setItem('refeicao', JSON.stringify(already))
+			sessionStorage.setItem('total', JSON.stringify(conta))
+			$('#total').text(conta.total + '€')
+			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		}
 	})
-	
-	// guarda item no sessionStorage
-	sessionStorage.setItem('refeicao', JSON.stringify(already))
-	sessionStorage.setItem('total', JSON.stringify(conta))
-	$('#total').text(conta.total + '€')
-	$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 }
 
 // função auxiliar para obter número pseudo-aleatório, não igual a nenhum no array dado.
