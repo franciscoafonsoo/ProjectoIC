@@ -19,7 +19,7 @@ $(function(){
 
 		jQuery.each(already.items, function (index, item) {
 			// insert missing lines in the table
-			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + already.id[index] + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + item.identify + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
 			$('.ui.huge.table').append(cenas)
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
