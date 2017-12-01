@@ -123,9 +123,7 @@ function remove(unique) {
 	// remover item
 	$("." + unique).remove()
 	// remove from id array
-	var index = already.id.indexOf(unique);
-	already.id.splice(index, 1);
-	delete index
+	
 	// remover da lista
 	jQuery.each(already.items, function (index, item) {
 		if (item.identify == unique) {
