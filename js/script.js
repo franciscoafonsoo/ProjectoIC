@@ -19,7 +19,7 @@ $(function(){
 
 		jQuery.each(already.items, function (index, item) {
 			// insert missing lines in the table
-			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + item.identify + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + item.identify + '" class="remove red icon" onClick="remove(this.id)"></i></td></tr>'
 			$('.ui.huge.table').append(cenas)
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
@@ -106,7 +106,7 @@ function pulse(unique) {
 			sessionStorage.setItem('total', JSON.stringify(conta))
 
 			// linha a adicionar à tabela
-			var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td>' + price + '</td><td><i id="' + usar + '" class="remove icon" onClick="remove(this.id)"></i></td></tr>'
+			var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td>' + price + '</td><td><i id="' + usar + '" class="remove red icon" onClick="remove(this.id)"></i></td></tr>'
 
 			// update table	& pedido
 			$('.ui.huge.table').append(grande)
@@ -122,6 +122,10 @@ function remove(unique) {
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	// remover item
 	$("." + unique).remove()
+	// remove from id array
+	var index = already.id.indexOf(unique);
+	already.id.splice(index, 1);
+	delete index
 	// remover da lista
 	jQuery.each(already.items, function (index, item) {
 		if (item.identify == unique) {
