@@ -44,8 +44,8 @@ $(function(){
 		window.location.href = "../pagamento/multibanco.html";
 	})
 
-	$('#transferencia').click( function () {
-		window.location.href = "../pagamento/transferencia.html";
+	$('#bitcoin').click( function () {
+		window.location.href = "../pagamento/bitcoin.html";
 	})
 
 })
