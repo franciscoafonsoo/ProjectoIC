@@ -47,38 +47,10 @@ $(function(){
 			telemovel: {
 				identifier: 'telemovel',
 				optional   : true,
-				rules: [
+				rules: [	
 				{
 					type   : 'exactLength[9]',
 					prompt : 'Por favor, escolha um número de pessoas.'
-				}
-				]
-			}
-		}
-	})
-	// Form confirmar com telemovel
-	$('#confirmarTelemovelForm').form({
-		fields: {
-			cTelemovel: {
-				identifier: 'cTelemovel',
-				rules: [
-				{
-					type   : 'empty',
-					prompt : 'Por favor, escolha um'
-				}
-				]
-			}
-		}
-	})
-	// Form confirmar com id
-	$('#confirmarIdForm').form({
-		fields: {
-			cid: {
-				identifier: 'cid',
-				rules: [
-				{
-					type   : 'empty',
-					prompt : 'Por favor, escolha um'
 				}
 				]
 			}
@@ -123,13 +95,39 @@ $(function(){
 	})
 	// confirmar reserva com telemovel
 	$('#confirmarTelemovel').click( function () {
-		if( $('#confirmarTelemovelForm').form('is valid')) {
+		var check = document.getElementById('cTelemovel').value
+		if(check.length != 9) {
+			$('#modaltitulo').text('O número inserido está incorrecto.')
+			hideOrShowModal('hide')
+			$('#bmodal').modal({
+				onApprove : function() {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				},
+				onDeny : function () {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				}
+			}).modal('show')
+		}
+		else {
 			confirmarReserva('cTelemovel')
 		}
 	})
 	// confirmar reserva com id
 	$('#confirmarId').click( function () {
-		if( $('#confirmarIdForm').form('is valid')) {
+		var check = document.getElementById('cid').value
+		if(check.length == 0) {
+			$('#modaltitulo').text('Por favor, introduza o seu número da reserva.')
+			hideOrShowModal('hide')
+			$('#bmodal').modal({
+				onApprove : function() {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				},
+				onDeny : function () {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				}
+			}).modal('show')
+		}
+		else {
 			confirmarReserva('cid')
 		}
 	})
@@ -157,6 +155,15 @@ $(function(){
 				$('#modaltitulo').text('Não existe nenhuma reserva com este número')
 			}
 			hideOrShowModal('hide')
+
+			$('#bmodal').modal({
+				onApprove : function() {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				},
+				onDeny : function () {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				}
+			}).modal('show')
 		}
 		else {
 			$('#modaltitulo').text('Confirme os dados da reserva:')
@@ -164,16 +171,17 @@ $(function(){
 			$('#contentHora').text('Hora da Reserva: ' + check[0].hora)
 			$('#contentPessoas').text('Nº de Pessoas: ' + check[0].pessoas)
 			$('#contentTelemovel').text('Nº de Telemóvel: ' + check[0].telemovel)
-		}	
-		$('#bmodal').modal({
-			onApprove : function() {
-				// TODO: se confirmar os dados, remover localStorage 
-				window.location.replace("../refeicoes/entradas.html")
-			},
-			onDeny : function () {
-				setTimeout(function() { hideOrShowModal('show') }, 1000)
-			}
-		}).modal('show')
+
+			$('#bmodal').modal({
+				onApprove : function() {
+					// TODO: se confirmar os dados, remover localStorage 
+					window.location.replace("../refeicoes/entradas.html")
+				},
+				onDeny : function () {
+					setTimeout(function() { hideOrShowModal('show') }, 700)
+				}
+			}).modal('show')
+		}
 	}
 	// obter array com 'tlm', se existir
 	function getTlm(data, tlm) {
@@ -194,12 +202,14 @@ $(function(){
 			$('#contentHora').show()
 			$('#contentPessoas').show()
 			$('#contentTelemovel').show()
+			$('#butaonao').show()
 		}
 		else if (parm === 'hide') {
 			$('#contentData').hide()
 			$('#contentHora').hide()
 			$('#contentPessoas').hide()
 			$('#contentTelemovel').hide()
+			$('#butaonao').hide()
 		}
 	}
 })

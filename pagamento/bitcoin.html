@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="../js/calendar.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/calendar.min.css">
 	<!-- Should always be the last -->
-	<script type="text/javascript" src="../js/script.js"></script>
+	<script src="https://rawgit.com/alfg/jquery-btc/master/src/jquery.btc.js"></script>
 	<script type="text/javascript" src="../js/pagamento.js"></script>
 </head>
 <body>
@@ -52,59 +52,65 @@
 			</div>
 			<table class="ui huge table">
 				<thead>
-					<tr><th class="ten wide">Item</th>
-					<th class="six wide">Preço</th>
+					<tr><th class="ten wide">Total</th>
+					<th class="six wide">BTC</th>
 					</tr>
 				</thead>
 				<tbody>
 				</tbody>
 				<tfoot>
-					<tr><th>Total</th>
-			    	<th id="total"></th>
-					  </tr>
+					<tr>
+						<th id="total"></th>
+			    		<th data-usd="" id="btc"></th>
+					</tr>
 				</tfoot>
 			</table>
 		</div>
 		<div class="two wide column"></div>
 		<div id="colunadinheiro" class="seven wide column">
 			<div class="ui vertical segment">
-				<h1>Insira o seu número do Cartão:</h1>		
+				<h1>Pagar com Bitcoin:</h1>		
 				<div class="ui message">
 					<div class="header">
-						Atenção:
+						Instruções:
 					</div>
-					<p>Deve inserir um cartão que seja compatível com a rede Multibanco. </p>
+					<p>1. Coloque o address da nossa carteira bitcoin (abaixo indicado) na sua wallet. </p>
+					<p>2. Coloque o valor a pagar (em BTC) na sua wallet.</p>
+					<p>3. Confirme a transfência do valor.</p>
 				</div>
-				<form id="transferForm" class="ui large form" onSubmit="return false;">
-					<div class="required field">
-						<div class="ui left icon action center fluid input">
-							<i class="credit card icon"></i>
-							<input id='cartao' type="text" placeholder="Nº Cartão (16 digitos)">
-							<div id="confirmarCartao" class="ui teal button">Confirmar</div>
-						</div>
+				<div class="ui message">
+					<div id="btcc" class="header">
+						A Pagar: 
 					</div>
-					<div class="ui hidden error message">
+				</div>
+				<div id="transferForm" class="ui center fluid action large input">
+					<input value="1L5wSMgerhHg8GZGcsNmAx5EXMRXSKR3He" type="text" disabled>
+					<button class="ui teal right labeled  icon button">
+						<i class="copy icon"></i>
+						Copiar
+					</button>
+				</div>
+				<div class="ui hidden error message">
+					<div class="header">
+						Erro:
+					</div>
+					<p>Por favor, insira um número válido.</p>
+				</div>
+				<div id='done' class="ui hidden icon message">
+					<i class="checkmark icon"></i>
+					<div class="header">
+							Feito. Refeição paga.
+					</div>
+				</div>
+				<div id='waiting' class="ui hidden icon message">
+					<i class="notched circle loading icon"></i>
+					<div class="content">
 						<div class="header">
-							Erro:
+							Por favor, espere.
 						</div>
-						<p>Por favor, insira um número válido.</p>
+						<p>Estamos a verificar o seu pedido.</p>
 					</div>
-					<div id='done' class="ui hidden icon message">
-						<i class="checkmark icon"></i>
-						<div class="header">
-								Feito. Refeição paga.
-						</div>
-					</div>
-					<div id='waiting' class="ui hidden icon message">
-						<i class="notched circle loading icon"></i>
-						<div class="content">
-							<div class="header">
-								Por favor, espere.
-							</div>
-							<p>Estamos a verificar o seu pedido.</p>
-						</div>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,12 @@
 $(function(){
 
+    var conta 	= JSON.parse(sessionStorage.getItem('total'))
+    $("#btc").attr("data-usd", conta.total);
+    $("#btcc").attr("data-usd", conta.total);
+    $('#btc').btc()
+    $('#btcc').btc()
+    $('#total').text(conta.total + '€')
+
     // form mbway
     $('#mbwayForm').form({
         fields: {
@@ -61,5 +68,5 @@ $(function(){
             $('.ui.error.message').show()
             $('#waiting').hide()
         }
-	})
+    })
 })

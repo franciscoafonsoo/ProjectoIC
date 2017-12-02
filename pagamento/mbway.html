@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="../js/calendar.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/calendar.min.css">
 	<!-- Should always be the last -->
-	<script type="text/javascript" src="../js/script.js"></script>
+	<script src="https://rawgit.com/alfg/jquery-btc/master/src/jquery.btc.js"></script>
 	<script type="text/javascript" src="../js/pagamento.js"></script>
 </head>
 <body>
@@ -51,19 +51,20 @@
 						Bitcoin</a>
 			</div>
 			<table class="ui huge table">
-				<thead>
-					<tr><th class="ten wide">Item</th>
-					<th class="six wide">Preço</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-				<tfoot>
-					<tr><th>Total</th>
-			    	<th id="total"></th>
-					  </tr>
-				</tfoot>
-			</table>
+					<thead>
+						<tr><th class="ten wide">Total</th>
+						<th class="six wide">BTC</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th id="total"></th>
+							<th data-usd="" id="btc"></th>
+						</tr>
+					</tfoot>
+				</table>
 		</div>
 		<div class="two wide column"></div>
 		<div id="colunadinheiro" class="seven wide column">
