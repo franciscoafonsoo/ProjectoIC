@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<!-- 									-->
+<!-- HEADER 							-->
+<!-- Includes JQuery.js and Semantic.js -->
+<!-- 									-->
+
+<head>
+    <title>MInt - Your Menu, Reinvented!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="ui fixed menu">
+            <!-- Header -->
+            <div class="header item">
+                <a href="../index.html">
+                    <!-- MInt (v2: modify link in js) -->
+                    <img class="ui mini fluid image" src="../images/logo.png">
+                </a>
+            </div>
+            <div class="right menu">
+                <!-- right menu -->
+                <a class="ui item">
+                    <i class="search icon"></i>
+                </a>
+                <!-- search -->
+                <a id="pedido" href='../pedido/pedido.html' class="ui teal active item">
+                    <!-- pedido (v2: modify link in js) -->
+                    <i class="shop icon"></i>
+                    Meu Pedido: 0€
+                    <!-- variavel dinamica (v2) -->
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id='maingrid' class="ui centerded grid">
+        <div class="four wide column"></div>
+        <div class="seven wide stretched column">
+            <!-- 1º Coluna Principal -->
+            <div class="ui vertical segment">
+                <h1>Perguntas Frequentes:</h1>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Como posso fazer uma reserva?
+                    </div>
+                    <div class="content">
+                        <p>A qualquer momento da sua refeição, pode carregar na tecla MInt (Home) e selecionar a opção “Reservas”.
+                        Neste ecrã é só preencher o formulário à esquerda com os dados apropriados à sua reserva.</p>
+                    </div>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Como posso confirmar a minha reserva?
+                    </div>
+                    <div class="content">
+                        <p>No menu inicial, selecione a opção “Reservas” e preencha um dos formulários à direita, ou usando
+                            o número de telemóvel que usou ao fazer a reserva, ou o número de reserva.</p>
+                    </div>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Como posso proceder ao pagamento do meu pedido?
+                    </div>
+                    <div class="content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="four column row">
+        </div>
+    </div>
+</body>
+
+</html>

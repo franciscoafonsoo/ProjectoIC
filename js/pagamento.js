@@ -1,6 +1,12 @@
 $(function(){
 
-    var conta 	= JSON.parse(sessionStorage.getItem('total'))
+    if(!sessionStorage.getItem('refeicao')) {
+        var conta = {total: 0}
+    }
+    else{
+        var conta 	= JSON.parse(sessionStorage.getItem('total'))
+    }
+    
     $("#btc").attr("data-usd", conta.total);
     $("#btcc").attr("data-usd", conta.total);
     $('#btc').btc()
@@ -47,6 +53,11 @@ $(function(){
                 $('#waiting').hide()
                 $('#done').show()
             }, 5000)
+            setTimeout(function () {
+                window.location.href = "../index.html"
+            }, 8000)
+            sessionStorage.removeItem('refeicao')
+            sessionStorage.removeItem('total')
         }
         else {
             $('.ui.error.message').show()
@@ -63,6 +74,11 @@ $(function(){
                 $('#waiting').hide()
                 $('#done').show()
             }, 5000)
+            setTimeout(function () {
+                window.location.href = "../index.html"
+            }, 8000)
+            sessionStorage.removeItem('refeicao')
+            sessionStorage.removeItem('total')
         }
         else {
             $('.ui.error.message').show()

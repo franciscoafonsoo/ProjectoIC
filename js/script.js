@@ -48,6 +48,8 @@ $(function(){
 		window.location.href = "../pagamento/bitcoin.html";
 	})
 
+	/* accordion on help page */
+	$('.ui.accordion').accordion();
 })
 
 function pulse(unique) {
