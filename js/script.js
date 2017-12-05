@@ -49,7 +49,10 @@ $(function(){
 	})
 
 	/* accordion on help page */
-	$('.ui.accordion').accordion();
+	$('.ui.accordion').accordion()
+
+	/* tab on new meal */
+	$('.menu .item').tab()
 })
 
 function pulse(unique) {
