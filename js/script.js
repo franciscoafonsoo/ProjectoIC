@@ -77,7 +77,7 @@ function pulse(unique) {
 	var already = JSON.parse(sessionStorage.getItem('refeicao'))
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	var name 	= $("#" + unique).find(".thirteen.wide.column").html()
-	var price	= $("#" + unique).find(".right.aligned.column").html()
+	var price	= $("#" + unique).find(".alignright").html()
 	var extra 	= $("#" + unique).find("p").html()
 	var imagem 	= $("#" + unique).find(".ui.large.fluid.image").attr("src")
 	// geracao de um id unico e verificar se já existe um id igual
