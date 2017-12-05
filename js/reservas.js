@@ -46,11 +46,10 @@ $(function(){
 			},
 			telemovel: {
 				identifier: 'telemovel',
-				optional   : true,
 				rules: [	
 				{
 					type   : 'exactLength[9]',
-					prompt : 'Por favor, escolha um número de pessoas.'
+					prompt : 'Por favor, escolha um número de telemóvel.'
 				}
 				]
 			}

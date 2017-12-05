@@ -66,23 +66,17 @@ $(function(){
     })
     
      // efectuar pagamento por transferencia
-	$('#confirmarCartao').click( function () {
-		if( $('#transferForm').form('is valid')) {
-            $('.ui.error.message').hide()
-            $('#waiting').show()
-            setTimeout(function (){
-                $('#waiting').hide()
-                $('#done').show()
-            }, 5000)
-            setTimeout(function () {
-                window.location.href = "../index.html"
-            }, 8000)
-            sessionStorage.removeItem('refeicao')
-            sessionStorage.removeItem('total')
-        }
-        else {
-            $('.ui.error.message').show()
+	$('#cBitcoin').click( function () {
+        $('.ui.error.message').hide()
+        $('#waiting').show()
+        setTimeout(function (){
             $('#waiting').hide()
-        }
+            $('#done').show()
+        }, 5000)
+        setTimeout(function () {
+            window.location.href = "../index.html"
+        }, 8000)
+        sessionStorage.removeItem('refeicao')
+        sessionStorage.removeItem('total')
     })
 })
