@@ -4,38 +4,45 @@
 <!-- HEADER 							-->
 <!-- Includes JQuery.js and Semantic.js -->
 <!-- 									-->
+
 <head>
 	<title>MInt - Your Menu, Reinvented!</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/general.css">
-	<script
-	src="https://code.jquery.com/jquery-3.1.1.min.js"
-	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
 	<script type="text/javascript" src="../js/script.js"></script>
 </head>
+
 <body>
 	<header>
-		<div class="ui fixed menu">											<!-- Header -->
+		<div class="ui fixed menu">
+			<!-- Header -->
 			<div class="header item">
-				<a href="../index.html">										<!-- MInt (v2: modify link in js) -->
+				<a href="../index.html">
+					<!-- MInt (v2: modify link in js) -->
 					<img class="ui mini fluid image" src="../images/logo.png">
 				</a>
 			</div>
-			<div class="right menu">										<!-- right menu -->
-				<a class="ui item"><i class="search icon"></i></a>			<!-- search -->
-				<a id="pedido" href='../pedido/pedido.html' class="ui teal active item"> 	<!-- pedido (v2: modify link in js) -->
-					<i class="shop icon"></i>
-					Meu Pedido: 0€											<!-- variavel dinamica (v2) -->
+			<div class="right menu">
+				<!-- right menu -->
+				<a class="ui item"><i class="search icon"></i></a>
+				<!-- search -->
+				<a id="pedido" href='../pedido/pedido.html' class="ui teal active item">
+					<!-- pedido (v2: modify link in js) -->
+					<i class="shop icon"></i> Meu Pedido: 0€
+					<!-- variavel dinamica (v2) -->
 				</a>
 			</div>
 		</div>
 	</header>
-	<div id='maingrid' class="ui grid">													<!-- Grid: divisao do espaço -->
-		<div class="four wide column">													<!-- Coluna tamanho 4 (Menu) -->
-			<div class="ui fluid huge vertical pointing menu">							<!-- Menu Vertical  -->
+	<div id='maingrid' class="ui grid">
+		<!-- Grid: divisao do espaço -->
+		<div class="four wide column">
+			<!-- Coluna tamanho 4 (Menu) -->
+			<div class="ui fluid huge vertical pointing menu">
+				<!-- Menu Vertical  -->
 				<a class="item" href="entradas.html">			Entradas</a>
 				<a class="item teal active" href="pratos.html">	Pratos</a>
 				<a class="item" href="bebidas.html">			Bebidas</a>
@@ -53,161 +60,316 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th>Total</th>
+						<th><b>Total</b></th>
 						<th id="total"></th>
 						<th></th>
 					</tr>
 				</tfoot>
 			</table>
 			<button onClick="parent.location='../pedido/pedido.html'" class="ui right labeled icon teal fluid button">
-				<i class="right arrow icon"></i>
-				Efectuar Pedido
+				<i class="right arrow icon"></i> Efectuar Pedido
 			</button>
 		</div>
-		<div class="six wide stretched column">												<!-- 1º Coluna Principal -->
-			<div class="ui vertical segment">
-				<div id='oneleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Primeira Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/bacalhau.jpg">
+		<div id="coluna" class="twelve wide column">
+			<div class="ui top attached tabular huge menu">
+				<a class="item active" data-tab="first">Carne</a>
+				<a class="item" data-tab="second">Peixe</a>
+				<a class="item" data-tab="third">Vegetariano</a>
+			</div>
+			<div class="ui bottom attached tab segment active" data-tab="first">
+				<div class="ui grid">
+					<div class="three column row">
+						<div class="column">
+							<!-- Primeira Coluna Esquerda -->
+							<div id='leftone' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/massa.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Massa com carne picada</p>
+										<p class="alignright">6.00€</p>
+										<p id="extra">Bacalhau desfiado envolvido num refogado de cebola juntamente com batatas fritas, molho bechamel e natas, que vai ao forno a alourar.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='lefttwo' onclick="pulse(this.id)" class="ui segments large">
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/febras-porco.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Febras de porco com natas</p>
+										<p class="alignright">6.50€</p>
+										<p id="extra">Febras de porco com natas acompanhadas por arroz thai e batata doce frita.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
 						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Bacalhau com natas</div>
-								<div class="right aligned column">7.99€</div>
-								<p id="extra">Bacalhau desfiado envolvido num refogado de cebola juntamente com batatas fritas, molho bechamel e natas, que vai ao forno a alourar.</p>
+						<div class="column">
+							<div id='middleone' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/arroz-pato.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Arroz de pato</p>
+										<p class="alignright">7.00€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='middletwo' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Salmão Grelhado</p>
+										<p class="alignright">8.50€</p>
+										<p id="extra">Salmão grelhado acompanhado por batatas cozidas e feijão verde.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div id='twomiddle' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='tworight' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="ui vertical segment">
-				<div id='twoleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Segunda Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/massa.jpg">
+			<div class="ui bottom attached tab segment" data-tab="second">
+				<div class="ui grid">
+					<div class="three column row">
+						<div class="column">
+							<!-- Primeira Coluna Esquerda -->
+							<div id='leftone' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/bacalhau.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">7.99€</p>
+										<p id="extra">Bacalhau desfiado envolvido num refogado de cebola juntamente com batatas fritas, molho bechamel e natas, que vai ao forno a alourar.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='lefttwo' onclick="pulse(this.id)" class="ui segments large">
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/filetes-peixe.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Filetes de pescada</p>
+										<p class="alignright">7.99€</p>
+										<p id="extra">Filetes de pescada panados acompanhados por batata frita, arroz e salada.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
 						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Massa com carne picada</div>
-								<div class="right aligned column">6.00€</div>
-								<p id="extra">Tortiglioni com carne picada que, numa primeira fase é envolvida em refogado de cebola picada, alho picado e azeite e, posteriormente lhe é adicionada tomates pelados fazendo um belo molho de tomate. No fim, pulverizada com queijo parmesão.</p>
+						<div class="column">
+							<div id='middleone' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/peixe-batatas.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Sardinhas Assadas</p>
+										<p class="alignright">7.50€</p>
+										<p id="extra">Sardinhas assadas acompanhadas por batatas no forno e salada.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='middletwo' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/salmao-batatas.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Salmão Grelhado</p>
+										<p class="alignright">8.50€</p>
+										<p id="extra">Salmão grelhado acompanhado por batatas cozidas e feijão verde.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div id='twomiddle' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='tworight' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="ui vertical segment">
-				<div id='threeleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/filetes-peixe.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Filetes de pescada panados</div>
-								<div class="right aligned column">7.99€</div>
-								<p id="extra">Filetes de pescada panados acompanhados por batata frita, arroz e salada.</p>
+			<div class="ui bottom attached tab segment" data-tab="third">
+				<div class="ui grid">
+					<div class="three column row">
+						<div class="column">
+							<div id='oneleft' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/salada-Gordinni.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Salada Gordinni</p>
+										<p class="alignright">5.50€</p>
+										<p id="extra">Misto de verdes com tomate, ananás, camarão, cenoura, ovo cozido e azeitonas.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='onemiddle' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='fourleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/peixe-batatas.jpg">
+						<div class="column">
+							<div id='oneright' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='twoleft' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
 						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Sardinhas assadas</div>
-								<div class="right aligned column">7.50€</div>
-								<p id="extra">Sardinhas assadas acompanhadas por batatas no forno e salada.</p>
+						<div class="column">
+							<div id='twomiddle' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='tworight' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui fluid image" src="../images/agua.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bacalhau c/ natas</p>
+										<p class="alignright">11,95€</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="six wide stretched column">													<!-- 2º Coluna Principal -->
-			<div class="ui vertical segment">
-				<div id='oneright' onclick="pulse(this.id)" class="ui segments huge"> 			<!-- Primeira Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/salada-Gordinni.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Salada Gordinni</div>
-								<div class="right aligned column">5.50€</div>
-								<p id="extra">Misto de verdes com tomate, ananás, camarão, cenoura, ovo cozido e azeitonas.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='tworight' onclick="pulse(this.id)" class="ui segments huge">			<!-- Segunda Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/febras-porco.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Febras de porco com natas</div>
-								<div class="right aligned column">6.50€</div>
-								<p id="extra">Febras de porco com natas acompanhadas por arroz thai e batata doce frita.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='threeright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/arroz-pato.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Arroz de pato</div>
-								<div class="right aligned column">7.00€</div>
-																								<!-- a faltar <p> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='fourright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/salmao-batatas.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Salmão Grelhado</div>
-								<div class="right aligned column">8.50€</div>
-								<p id="extra">Salmão grelhado acompanhado por batatas cozidas e feijão verde.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>
+	</div>
 	<div id="algo" class="ui modal">
 		<i class="close icon"></i>
 		<div id="contentProduto" class="header">
 			Produto Selecionado
+			<p id="contentPreco" class="alignright"></p>
 		</div>
 		<div class="image content">
 			<div class="ui medium image">
-				<img id="contentImagem" src="../images/bacalhau.jpg">
+				<img id="contentImagem" src="">
 			</div>
 			<div class="description">
 				<div class="ui header">De notar:</div>
-				<div id="contentConstituintes" class="content" >
+				<div id="contentConstituintes" class="content">
 					<p>dados aqui</p>
 				</div>
 			</div>
@@ -223,4 +385,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

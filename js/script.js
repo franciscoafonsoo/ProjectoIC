@@ -76,9 +76,9 @@ function pulse(unique) {
 	// parse da info necessaria
 	var already = JSON.parse(sessionStorage.getItem('refeicao'))
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
-	var name 	= $("#" + unique).find(".thirteen.wide.column").html()
+	var name 	= $("#" + unique).find(".alignleft").html()
 	var price	= $("#" + unique).find(".alignright").html()
-	var extra 	= $("#" + unique).find("p").html()
+	var extra 	= $("#" + unique).find("#extra").html()
 	var imagem 	= $("#" + unique).find(".ui.large.fluid.image").attr("src")
 	// geracao de um id unico e verificar se já existe um id igual
 	already.id = getRandomInt(already.id)
@@ -87,7 +87,7 @@ function pulse(unique) {
 
 	// por info necessaria no modal
 	$('#contentProduto').html(name);
-	$('#contentPreco').html(price);
+	$('#contentProduto').append('<p id="contentPreco" class="alignright">' + price + '</p>')
 	$('#contentConstituintes').html(extra);
 	$('#contentImagem').attr('src', "" + imagem);
 
