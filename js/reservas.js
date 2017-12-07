@@ -55,6 +55,9 @@ $(function(){
 			}
 		}
 	})
+
+	$('.coupled.modal').modal({allowMultiple: false})
+
 	// efectuar reserva e confirmar
 	$('#efectuarReserva').click( function () {
 		if( $('#efectuar').form('is valid')) {
@@ -85,9 +88,13 @@ $(function(){
   			  onApprove : function() {
   			  	// se confirmar os dados, guarda na localStorage
   			    localStorage.setItem('reservas', JSON.stringify(already))
-  			    localStorage.setItem('id', JSON.stringify(increm))
-  			    alert('Reserva Efectuada.\nNº da Reserva: ' + increm.total)
-				window.location.replace("../index.html")
+				localStorage.setItem('id', JSON.stringify(increm))
+				$('#contentReserva').html('Nº da Reserva: ' + increm.total)
+				$('#cmodal').modal({
+					onApprove: function() {
+						window.location.replace("../index.html")
+					}
+				}).modal('show')
 				}
   			}).modal('show')
 		}

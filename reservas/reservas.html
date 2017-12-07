@@ -127,29 +127,36 @@
 				</div>
 			</form>
 		</div>
-		<div id="bmodal" class="ui coupled basic modal">
-			<div id="modaltitulo" class="ui icon header">
-				<i class="warning icon"></i>
+		<div id="bmodal" class="ui coupled modal">
+			<div id="modaltitulo" class="ui header">
 				Confirme os dados da reserva:
 			</div>
-			<div id='contentData' class="content">
-				<p>Dados aqui</p>
-			</div>
-			<div id='contentHora' class="content">
-				<p>Dados aqui</p>
-			</div>
-			<div id='contentPessoas' class="content">
-				<p>Dados aqui</p>
-			</div>
-			<div id='contentTelemovel' class="content">
-				<p>Dados aqui</p>
+			<div class="content">
+				<p id='contentData'>Dados aqui</p>
+				<p id='contentHora'>Dados aqui</p>
+				<p id='contentPessoas' >Dados aqui</p>
+				<p id='contentTelemovel'>Dados aqui</p>
 			</div>
 			<div class="actions">
-				<div id='butaonao' class="ui red basic cancel inverted button">
+				<div id='butaonao' class="ui red cancel button">
 					<i class="remove icon"></i>
 					No
 				</div>
-				<div class="ui green ok inverted button">
+				<div class="ui green ok button">
+					<i class="checkmark icon"></i>
+					Yes
+				</div>
+			</div>
+		</div>
+		<div id="cmodal" class="ui coupled modal">
+			<div id="modaltitulo" class="ui header">
+				Reserva Efectuada
+			</div>
+			<div class="content">
+				<p id='contentReserva'>Dados aqui</p>
+			</div>
+			<div class="actions">
+				<div class="ui green ok button">
 					<i class="checkmark icon"></i>
 					Yes
 				</div>
