@@ -4,13 +4,11 @@ $(function(){
         var conta = {total: 0}
     }
     else{
-        var conta 	= JSON.parse(sessionStorage.getItem('total'))
+        var conta = JSON.parse(sessionStorage.getItem('total'))
     }
     
-    $("#btc").attr("data-usd", conta.total);
-    $("#btcc").attr("data-usd", conta.total);
-    $('#btc').btc()
-    $('#btcc').btc()
+    $("#btc").attr("data-usd", conta.total); $("#btcc").attr("data-usd", conta.total)
+    $('#btc').btc(); $('#btcc').btc()
     $('#total').text(conta.total + '€')
 
     // form mbway

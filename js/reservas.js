@@ -192,7 +192,7 @@ $(function(){
 	function getId(data, id) {
 		return data.filter(
 			function(data){ return data.id == id }
-		);
+		)
 	}
 	// esconder elementos do modal de confirmacao
 	function hideOrShowModal(parm) {

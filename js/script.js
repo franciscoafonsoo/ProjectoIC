@@ -34,19 +34,19 @@ $(function(){
 
 	// os vários redirects para as páginas nos botões do modal
 	$('#dinheiro').click( function () {
-		window.location.href = "../pagamento/dinheiro.html";
+		window.location.href = "../pagamento/dinheiro.html"
 	})
 
 	$('#mbway').click( function () {
-		window.location.href = "../pagamento/mbway.html";
+		window.location.href = "../pagamento/mbway.html"
 	})
 
 	$('#multibanco').click( function () {
-		window.location.href = "../pagamento/multibanco.html";
+		window.location.href = "../pagamento/multibanco.html"
 	})
 
 	$('#bitcoin').click( function () {
-		window.location.href = "../pagamento/bitcoin.html";
+		window.location.href = "../pagamento/bitcoin.html"
 	})
 
 	/* accordion on 'ajuda' */
@@ -84,13 +84,13 @@ function pulse(unique) {
 	// geracao de um id unico e verificar se já existe um id igual
 	already.id = getRandomInt(already.id)
 	// id gerado alteriormente (ultimo a ser adiciona ao array)
-	var usar = already.id[already.id.length - 1];
+	var usar = already.id[already.id.length - 1]
 
 	// por info necessaria no modal
-	$('#contentProduto').html(name);
+	$('#contentProduto').html(name)
 	$('#contentProduto').append('<p id="contentPreco" class="alignright">' + price + '€</p>')
-	$('#contentConstituintes').html(extra);
-	$('#contentImagem').attr('src', "" + imagem);
+	$('#contentConstituintes').html(extra)
+	$('#contentImagem').attr('src', "" + imagem)
 
 	$('#algo').modal({
 		onApprove : function() {
@@ -142,7 +142,7 @@ function pulse(unique) {
 			$('#total').text(conta.total + '€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 	  }
-	}).modal('show');
+	}).modal('show')
 }
 
 function remove(unique) {
