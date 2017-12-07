@@ -95,17 +95,13 @@ function pulse(unique) {
 	$('#algo').modal({
 		onApprove : function() {
 			// control variable and qty
-			var control = 0
-			var quantity = 1
 			// get table line to be modified
-			var modify
+			var control = 0; var quantity = 1; var modify
 			// verificar se já existe
 			jQuery.each(already.items, function (index, item) {
 				if (item.name == name) {
-					// found same item
-					control = 1
-					// get quantify for table
-					quantity = item.qty
+					// found same item and get quantify for table
+					control = 1; quantity = item.qty
 					// update qty
 					item.qty = item.qty + 1
 					// parse do valor
@@ -178,8 +174,7 @@ function remove(unique) {
 
 // função auxiliar para obter número pseudo-aleatório, não igual a nenhum no array dado.
 function getRandomInt(list) {
-	var min = 0
-	var max = 10000
+	var min = 0; var max = 10000
 	min = Math.ceil(min)
 	max = Math.floor(max)
 	//The maximum is exclusive and the minimum is inclusive
@@ -189,6 +184,5 @@ function getRandomInt(list) {
 		// se for igual, repetir. isto deve evitar alguma colisão que surja.
 		temp = Math.floor(Math.random() * (max - min)) + min
 	}
-	list.push(temp)
-	return list
+	list.push(temp); return list
 }
