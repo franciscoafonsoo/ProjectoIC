@@ -65,6 +65,13 @@ body {
 	padding-top: 7em;
 }
 
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
 .masthead.segment {
 	min-height: 700px;
 	padding: 1em 0em;

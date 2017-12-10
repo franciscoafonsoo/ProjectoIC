@@ -84,7 +84,7 @@ function pulse(unique) {
 
 	// por info necessaria no modal
 	$('#contentProduto').html(name);
-	$('#contentPreco').html(price);
+	$('#contentProduto').append('<p id="contentPreco" class="alignright">' + price + '</p>')
 	$('#contentConstituintes').html(extra);
 	$('#contentImagem').attr('src', "" + imagem);
 
