@@ -20,9 +20,9 @@ $(function(){
 		jQuery.each(already.items, function (index, item) {
 			// insert missing lines in the table
 			var newprice = item.price * item.qty
-			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.qty + '</td><td><i id="' + item.identify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td>' + newprice + '€</td></tr>'
+			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td class="center aligned">' + item.qty + '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
 			$('.ui.huge.table').append(cenas)
-			$('#total').text(conta.total + '€')
+			$('#total').html('<b>' + conta.total + '€</b>')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
@@ -112,7 +112,7 @@ function pulse(unique) {
 					modify = item.identify
 					// update table
 					var newprice = price * item.qty
-					var grande = '<tr class="' + modify +'"><td>' + name + '</td>><td>' + item.qty + '</td><td><i id="' + modify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td>' + newprice + '€</td></tr>'
+					var grande = '<tr class="' + modify +'"><td>' + name + '</td>><td class="center aligned">' + item.qty + '</td><td class="center aligned"><i style="margin-left:0;" id="' + modify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
 					modify = $("." + modify).replaceWith(grande)
 				}
 			})
@@ -130,7 +130,7 @@ function pulse(unique) {
 				conta.total.toFixed(3)
 				// linha a adicionar à tabela
 				var newprice = price.slice(0,-1) * quantity
-				var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td>' + 1 + '</td><td><i id="' + usar + '" class="remove red icon" onClick="remove(this.id)"></i></td><td>' + newprice + '€</td></tr>'
+				var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td class="center aligned">' + 1 + '</td><td class="center aligned"><i style="margin-left:0;" id="' + usar + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
 				// update table	& pedido
 				$('.ui.huge.table').append(grande)
 			}
@@ -139,7 +139,7 @@ function pulse(unique) {
 			sessionStorage.setItem('refeicao', JSON.stringify(already))
 			sessionStorage.setItem('total', JSON.stringify(conta))
 
-			$('#total').text(conta.total + '€')
+			$('#total').html('<b>' + conta.total + '€</b>')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 	  }
 	}).modal('show')
