@@ -1,0 +1,15 @@
+{
+    "pratos": 
+    {
+        "id": "id-da-funcao",
+        "nome": "nome-do-prato",
+        "ingredientes": [
+            "ingrediente1",
+            "ingrediente2"
+        ]
+    },
+    "bebidas":
+    {
+
+    }
+}
