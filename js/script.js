@@ -21,7 +21,7 @@ $(function(){
 			// insert missing lines in the table
 			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td>' + item.price + '</td><td><i id="' + item.identify + '" class="remove red icon" onClick="remove(this.id)"></i></td></tr>'
 			$('.ui.huge.table').append(cenas)
-			$('#total').text(conta.total + '€')
+			$('#total').html('<b>' + conta.total + '€</b>')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
@@ -112,7 +112,7 @@ function pulse(unique) {
 
 			// update table	& pedido
 			$('.ui.huge.table').append(grande)
-			$('#total').text(conta.total + '€')
+			$('#total').html('<b>' + conta.total + '</b>€')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 	  }
 	}).modal('show');
