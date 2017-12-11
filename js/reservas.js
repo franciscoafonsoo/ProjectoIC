@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 	/*
 	1. Começar pedido.
 
@@ -192,14 +192,14 @@ $(function(){
 	// obter array com 'tlm', se existir
 	function getTlm(data, tlm) {
 		return data.filter(
-			function(data){ return data.telemovel == tlm }
-		);
+			function(data){ return data.telemovel == tlm 
+			})
 	  }
 	// obter array com 'tlm', se existir
 	function getId(data, id) {
 		return data.filter(
-			function(data){ return data.id == id }
-		)
+			function(data){ return data.id == id 
+			})
 	}
 	// esconder elementos do modal de confirmacao
 	function hideOrShowModal(parm) {

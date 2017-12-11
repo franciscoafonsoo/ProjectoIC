@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 
 	/*
 	1. Começar pedido. Começa em qualquer página.
@@ -14,39 +14,68 @@ $(function(){
 		$('#pedido').html('<i class="shop icon"></i>Meu Pedido: 0€')
 	}
 	else {
+		/*
+		* Insert missing lines in the table
+		*/
 		var already = JSON.parse(sessionStorage.getItem('refeicao'))
 		var conta 	= JSON.parse(sessionStorage.getItem('total'))
 
 		jQuery.each(already.items, function (index, item) {
-			// insert missing lines in the table
+
 			var newprice = item.price * item.qty
-			var cenas = '<tr class="' + item.identify + '"><td>' + item.name + '</td>><td class="center aligned">' + item.qty + '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
+
+			if(item.status == 0) {
+				// linha do pedido
+				var cenas = '<tr class="' + item.identify 
+					// nome
+					+ '"><td>' + item.name 
+					// quantidade
+					+ '</td>><td class="center aligned">' + item.qty 
+					// remover
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
+					+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' 
+					// preço
+					+ '<td class="center aligned">' + newprice 
+					+ '€</td></tr>'
+			}
+
 			$('.ui.huge.table').append(cenas)
 			$('#total').html('<b>' + conta.total + '€</b>')
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
 
-	// popup de tipo de pagamento
-	$('#pagamento').click( function () {
-		$('#pmodal').modal('show')
-	})
+	$('.ui.right.labeled.icon.teal.fluid.button').click( function () {
+		// get refeicoes
+		var already = JSON.parse(sessionStorage.getItem('refeicao'))
+		// change pedido status
+		var modify; var nomes = {};
+		jQuery.each(already.items, function (index, item) {
+			// preco actualizado
+			var newprice = item.price * item.qty
+			// mudar pedido status
+			if (item.status == 0) {
+				// update qty
+				item.status = 1
+				// get it go get table line
+				modify = item.identify
+				// linha do pedido (sem remover)
+				var cenas = '<tr class="' + item.identify
+					// nome
+					+ '"><td>' + item.name 
+					// quantidade
+					+ '</td>><td class="center aligned">' + item.qty 
+					// remover
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
+					// preco
+					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>' 
+					+ '</i></td><td class="center aligned">' + newprice + '€</td></tr>'
+				$('#progresso').append(cenas)
+				$("." + item.identify).remove()
+			}
 
-	// os vários redirects para as páginas nos botões do modal
-	$('#dinheiro').click( function () {
-		window.location.href = "../pagamento/dinheiro.html"
-	})
-
-	$('#mbway').click( function () {
-		window.location.href = "../pagamento/mbway.html"
-	})
-
-	$('#multibanco').click( function () {
-		window.location.href = "../pagamento/multibanco.html"
-	})
-
-	$('#bitcoin').click( function () {
-		window.location.href = "../pagamento/bitcoin.html"
+			sessionStorage.setItem('refeicao', JSON.stringify(already))
+		})
 	})
 
 	/* accordion on 'ajuda' */
@@ -99,7 +128,7 @@ function pulse(unique) {
 			var control = 0; var quantity = 1; var modify
 			// verificar se já existe
 			jQuery.each(already.items, function (index, item) {
-				if (item.name == name) {
+				if (item.name == name && item.status == 0) {
 					// found same item and get quantify for table
 					control = 1; quantity = item.qty
 					// update qty
@@ -112,7 +141,19 @@ function pulse(unique) {
 					modify = item.identify
 					// update table
 					var newprice = price * item.qty
-					var grande = '<tr class="' + modify +'"><td>' + name + '</td>><td class="center aligned">' + item.qty + '</td><td class="center aligned"><i style="margin-left:0;" id="' + modify + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
+					// linha pedido modificada
+					var grande = '<tr class="' + modify 
+						// nome
+						+'"><td>' + name 
+						// quantidade
+						+ '</td>><td class="center aligned">' + item.qty 
+						// remover
+						+ '</td><td class="center aligned"><i style="margin-left:0;" id="' 
+						+ modify + '" class="remove red icon" onClick="remove(this.id)"></i></td>' 
+						// preco
+						+ '<td class="center aligned">' + newprice 
+						+ '€</td></tr>'
+
 					modify = $("." + modify).replaceWith(grande)
 				}
 			})
@@ -122,6 +163,7 @@ function pulse(unique) {
 					name: name,
 					price: price,
 					qty: quantity,
+					status: 0,
 					identify: usar
 				})
 				// parse do valor
@@ -130,7 +172,17 @@ function pulse(unique) {
 				conta.total.toFixed(3)
 				// linha a adicionar à tabela
 				var newprice = price.slice(0,-1) * quantity
-				var grande = '<tr class="' + usar +'"><td>' + name + '</td>><td class="center aligned">' + 1 + '</td><td class="center aligned"><i style="margin-left:0;" id="' + usar + '" class="remove red icon" onClick="remove(this.id)"></i></td><td class="center aligned">' + newprice + '€</td></tr>'
+
+				var grande = '<tr class="' + usar 
+				// nome e quantidade
+				+'"><td>' + name + '</td>><td class="center aligned">' + 1 
+				// remover
+				+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + usar 
+				+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' + 
+				// preco
+				'<td class="center aligned">' + newprice 
+				+ '€</td></tr>'
+
 				// update table	& pedido
 				$('.ui.huge.table').append(grande)
 			}

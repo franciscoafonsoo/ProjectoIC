@@ -14,7 +14,7 @@
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
-	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/pedido.js"></script>
 </head>
 <body>
 	<header>
@@ -41,15 +41,38 @@
 				<a class="item" href="../refeicoes/bebidas.html">				Bebidas</a>
 				<a class="item" href="../refeicoes/sobremesas.html">			Sobremesas</a>
 			</div>
+			<table id="remover" class="ui huge table">
+				<thead>
+					<tr>
+						<th class="ten wide">Item</th>
+						<th class="one wide">Qt</th>
+						<th class="one wide">Remover</th>
+						<th class="four wide">Preço</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th><b>Total</b></th>
+						<th></th>
+						<th></th>
+						<th id="rtotal"class="center aligned"></th>
+					</tr>
+				</tfoot>
+			</table>
+			<button class="ui right labeled icon teal fluid button">
+				<i class="right arrow icon"></i> Efectuar Pedido
+			</button>
 		</div>
 		<div class="twelve wide stretched column">												<!-- 1º Coluna Principal -->
 			<div id='segmentopedido' class="ui vertical segment">
-				<table class="ui huge table">
+				<table id="progresso" class="ui huge table">
 					<thead>
 						<tr>
 							<th class="seven wide">Item</th>
 							<th class="three wide center aligned">Quantidade</th>
-							<th class="three wide center aligned">Remover</th>
+							<th class="three wide center aligned">Progresso</th>
 							<th class="three wide center aligned">Preço</th>
 						</tr>
 					</thead>
@@ -60,7 +83,7 @@
 							<th><b>Total</b></th>
 							<th></th>
 							<th></th>
-							<th id="total" class="center aligned"></th>
+							<th id="ptotal" class="center aligned"></th>
 						</tr>
 					</tfoot>
 				</table>
