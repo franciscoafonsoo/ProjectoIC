@@ -1,3 +1,5 @@
+'use strict'
+
 $(function() {
 
 	if(!sessionStorage.getItem('refeicao')) {
@@ -54,7 +56,9 @@ $(function() {
 	var temp = getProgressBars()
 
 	function progresso() {
-		$(temp[0]).progress('increment')
+        jQuery.each(temp, function(index, item) {
+            $(temp[item]).progress('increment')
+        })
 	}
 
 	setInterval(progresso, 1000); // Time in milliseconds
