@@ -18,16 +18,16 @@ $(function() {
 
 			if(item.status == 0) {
 				// linha do pedido
-				var cenas = '<tr class="' + item.identify 
+				var cenas = '<tr class="' + item.identify
 					// nome
-					+ '"><td>' + item.name 
+					+ '"><td>' + item.name
 					// quantidade
-					+ '</td>><td class="center aligned">' + item.qty 
+					+ '</td>><td class="center aligned">' + item.qty
 					// remover
-					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
-					+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' 
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
+					+ '" class="remove red icon" onClick="remove(this.id)"></i></td>'
 					// preço
-					+ '<td class="center aligned">' + newprice 
+					+ '<td class="center aligned">' + newprice
 					+ '€</td></tr>'
 					$('#remover').append(cenas)
 			}
@@ -35,13 +35,13 @@ $(function() {
 				// linha do pedido (sem remover)
 				var cenas = '<tr class="' + item.identify
 					// nome
-					+ '"><td>' + item.name 
+					+ '"><td>' + item.name
 					// quantidade
-					+ '</td>><td class="center aligned">' + item.qty 
+					+ '</td>><td class="center aligned">' + item.qty
 					// remover
-					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
 					// preco
-					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>' 
+					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>'
 					+ '</i></td><td class="center aligned">' + newprice + '€</td></tr>'
 				$('#progresso').append(cenas)
 			}
@@ -50,6 +50,14 @@ $(function() {
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
+
+	var temp = getProgressBars()
+
+	function progresso() {
+		$(temp[0]).progress('increment')
+	}
+
+	setInterval(progresso, 1000); // Time in milliseconds
 
 	// popup de tipo de pagamento
 	$('#pagamento').click( function () {
@@ -89,13 +97,13 @@ $(function() {
 				// linha do pedido (sem remover)
 				var cenas = '<tr class="' + item.identify
 					// nome
-					+ '"><td>' + item.name 
+					+ '"><td>' + item.name
 					// quantidade
-					+ '</td>><td class="center aligned">' + item.qty 
+					+ '</td>><td class="center aligned">' + item.qty
 					// remover
-					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
 					// preco
-					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>' 
+					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>'
 					+ '</i></td><td class="center aligned">' + newprice + '€</td></tr>'
 				$('#progresso').append(cenas)
 			}
@@ -103,4 +111,19 @@ $(function() {
 			sessionStorage.setItem('refeicao', JSON.stringify(already))
 		})
 	})
+
+	// Obter as varias barras de progresso para incrementar o tempo do pedido
+	function getProgressBars() {
+		// obter items id's
+		var consol = 0
+		var already = JSON.parse(sessionStorage.getItem('refeicao')); var ids = []; var temp = [];
+		jQuery.each(already.items, function (index, item) {
+			if(item.status == 1) ids.push(item.identify)
+		})
+		jQuery.each(ids, function(index, item) {
+			temp.push($('#' + item).children())
+			})
+
+	return temp
+	}
 })

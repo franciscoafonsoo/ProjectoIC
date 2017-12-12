@@ -1,5 +1,4 @@
 $(function() {
-
 	/*
 	1. Começar pedido. Começa em qualquer página.
 
@@ -7,40 +6,38 @@ $(function() {
 			- Se simm: Obtem e faz update aos valores na página
 			- Se não: Cria os valores e guarda em sessionStorage
  	*/
-
 	if(!sessionStorage.getItem('refeicao')) {
 		sessionStorage.setItem('refeicao', JSON.stringify({items: [], id: []}))
 		sessionStorage.setItem('total', JSON.stringify({total: 0}))
 		$('#pedido').html('<i class="shop icon"></i>Meu Pedido: 0€')
 	}
 	else {
-		/*
-		* Insert missing lines in the table
-		*/
 		var already = JSON.parse(sessionStorage.getItem('refeicao'))
 		var conta 	= JSON.parse(sessionStorage.getItem('total'))
-
+		// iterar sobre o array refeicao
 		jQuery.each(already.items, function (index, item) {
-
+			// calcular os precos
 			var newprice = item.price * item.qty
-
+			// colocar somente os items ainda nao pedidos
 			if(item.status == 0) {
-				// linha do pedido
-				var cenas = '<tr class="' + item.identify 
+				// linha html do pedido || id
+				var cenas = '<tr class="' + item.identify
 					// nome
-					+ '"><td>' + item.name 
+					+ '"><td>' + item.name
 					// quantidade
-					+ '</td>><td class="center aligned">' + item.qty 
+					+ '</td>><td class="center aligned">' + item.qty
 					// remover
-					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
-					+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' 
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
+					+ '" class="remove red icon" onClick="remove(this.id)"></i></td>'
 					// preço
-					+ '<td class="center aligned">' + newprice 
+					+ '<td class="center aligned">' + newprice
 					+ '€</td></tr>'
 			}
-
+			// adicionar à tabela
 			$('.ui.huge.table').append(cenas)
+			// adicionar preco total
 			$('#total').html('<b>' + conta.total + '€</b>')
+			// adicionar preco ao butao pedido
 			$('#pedido').html('<i class="shop icon"></i>Meu Pedido: ' + conta.total + '€')
 		})
 	}
@@ -62,13 +59,13 @@ $(function() {
 				// linha do pedido (sem remover)
 				var cenas = '<tr class="' + item.identify
 					// nome
-					+ '"><td>' + item.name 
+					+ '"><td>' + item.name
 					// quantidade
-					+ '</td>><td class="center aligned">' + item.qty 
+					+ '</td>><td class="center aligned">' + item.qty
 					// remover
-					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify 
+					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
 					// preco
-					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>' 
+					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>'
 					+ '</i></td><td class="center aligned">' + newprice + '€</td></tr>'
 				$('#progresso').append(cenas)
 				$("." + item.identify).remove()
@@ -86,7 +83,6 @@ $(function() {
 })
 
 function pulse(unique) {
-
 	/*
 	2. Adicionar ao Carrinho:
 
@@ -99,7 +95,6 @@ function pulse(unique) {
 			- Adicionar entrada à sessionStorage
 			- Fazer update às tabelas e ao pedido
  	*/
-
 	// animação da div
 	$("#" + unique).transition('pulse')
 
@@ -114,7 +109,6 @@ function pulse(unique) {
 	already.id = getRandomInt(already.id)
 	// id gerado alteriormente (ultimo a ser adiciona ao array)
 	var usar = already.id[already.id.length - 1]
-
 	// por info necessaria no modal
 	$('#contentProduto').html(name)
 	$('#contentProduto').append('<p id="contentPreco" class="alignright">' + price + '€</p>')
@@ -142,18 +136,18 @@ function pulse(unique) {
 					// update table
 					var newprice = price * item.qty
 					// linha pedido modificada
-					var grande = '<tr class="' + modify 
+					var grande = '<tr class="' + modify
 						// nome
-						+'"><td>' + name 
+						+'"><td>' + name
 						// quantidade
-						+ '</td>><td class="center aligned">' + item.qty 
+						+ '</td>><td class="center aligned">' + item.qty
 						// remover
-						+ '</td><td class="center aligned"><i style="margin-left:0;" id="' 
-						+ modify + '" class="remove red icon" onClick="remove(this.id)"></i></td>' 
+						+ '</td><td class="center aligned"><i style="margin-left:0;" id="'
+						+ modify + '" class="remove red icon" onClick="remove(this.id)"></i></td>'
 						// preco
-						+ '<td class="center aligned">' + newprice 
+						+ '<td class="center aligned">' + newprice
 						+ '€</td></tr>'
-
+					// modificar a linha "onplace"
 					modify = $("." + modify).replaceWith(grande)
 				}
 			})
@@ -173,14 +167,14 @@ function pulse(unique) {
 				// linha a adicionar à tabela
 				var newprice = price.slice(0,-1) * quantity
 
-				var grande = '<tr class="' + usar 
+				var grande = '<tr class="' + usar
 				// nome e quantidade
-				+'"><td>' + name + '</td>><td class="center aligned">' + 1 
+				+'"><td>' + name + '</td>><td class="center aligned">' + 1
 				// remover
-				+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + usar 
-				+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' + 
+				+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + usar
+				+ '" class="remove red icon" onClick="remove(this.id)"></i></td>' +
 				// preco
-				'<td class="center aligned">' + newprice 
+				'<td class="center aligned">' + newprice
 				+ '€</td></tr>'
 
 				// update table	& pedido
@@ -203,8 +197,6 @@ function remove(unique) {
 	var conta 	= JSON.parse(sessionStorage.getItem('total'))
 	// remover item
 	$("." + unique).remove()
-	// remove from id array
-	
 	// remover da lista
 	jQuery.each(already.items, function (index, item) {
 		if (item.identify == unique) {
@@ -214,7 +206,6 @@ function remove(unique) {
 			conta.total.toFixed(3)
 			// remove element from array
 			already.items.splice(index,1);
-			
 			// save to sessionStorage
 			sessionStorage.setItem('refeicao', JSON.stringify(already))
 			sessionStorage.setItem('total', JSON.stringify(conta))
