@@ -43,7 +43,7 @@ $(function() {
 					// remover
 					+ '</td><td class="center aligned"><i style="margin-left:0;" id="' + item.identify
 					// preco
-					+ '"><div class="ui active teal small progress"><div class="bar"></div></div>'
+					+ '"><div class="ui indicating teal small progress"><div class="bar"></div></div>'
 					+ '</i></td><td class="center aligned">' + newprice + '€</td></tr>'
 				$('#progresso').append(cenas)
 			}
@@ -55,9 +55,18 @@ $(function() {
 
 	var temp = getProgressBars()
 
+	// obtem valor. se valor não existir iniciar a zero
+	if(!sessionStorage.getItem('progresso')) {
+	}
+	else {
+		var progressos = sessionStorage.getItem('progresso')
+	}
+
 	function progresso() {
         jQuery.each(temp, function(index, item) {
-            $(temp[item]).progress('increment')
+			$(temp[index]).progress('increment')
+			
+			// console.log($(temp[index].progress('get percent')))
         })
 	}
 
@@ -121,12 +130,14 @@ $(function() {
 		// obter items id's
 		var consol = 0
 		var already = JSON.parse(sessionStorage.getItem('refeicao')); var ids = []; var temp = [];
+
 		jQuery.each(already.items, function (index, item) {
 			if(item.status == 1) ids.push(item.identify)
 		})
+
 		jQuery.each(ids, function(index, item) {
 			temp.push($('#' + item).children())
-			})
+		})
 
 	return temp
 	}
