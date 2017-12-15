@@ -53,14 +53,10 @@ $(function() {
 		})
 	}
 
+
 	var temp = getProgressBars()
 
 	// obtem valor. se valor não existir iniciar a zero
-	if(!sessionStorage.getItem('progresso')) {
-	}
-	else {
-		var progressos = sessionStorage.getItem('progresso')
-	}
 
 	function progresso() {
         jQuery.each(temp, function(index, item) {
@@ -129,8 +125,8 @@ $(function() {
 	function getProgressBars() {
 		// obter items id's
 		var consol = 0
-		var already = JSON.parse(sessionStorage.getItem('refeicao')); var ids = []; var temp = [];
-
+		var ids = []; var temp = [];
+		// var already = JSON.parse(sessionStorage.getItem('refeicao')); var ids = []; var temp = [];
 		jQuery.each(already.items, function (index, item) {
 			if(item.status == 1) ids.push(item.identify)
 		})

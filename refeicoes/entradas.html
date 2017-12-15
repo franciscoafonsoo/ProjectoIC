@@ -66,137 +66,106 @@
 				Efectuar Pedido
 			</button>
 		</div>
-		<div id='colunaireita' class="six wide stretched column">												<!-- 1º Coluna Principal -->
-			<div class="ui vertical segment">
-				<div id='oneleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Primeira Coluna Esquerda -->
-					<div class="ui fluid image">
-						<img class="ui large fluid image" src="../images/pao-regular.jpg">
-					</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Pão</div>
-								<div class="right aligned column">0.70€</div>
-								<p id="extra">Pão bola caseiro. (3 unidades)</p>
+		<div id="coluna" class="twelve wide column">
+			<div class="ui top attached tabular huge menu">
+				<a class="item active" data-tab="first">Aperitivos</a>
+			</div>
+			<div class="ui bottom attached tab segment active" data-tab="first">
+				<div class="ui grid">
+					<div class="three column row">
+						<div class="column">
+							<!-- Primeira Coluna Esquerda -->
+							<div id='meatone' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/azeitonas.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Azeitonas</p>
+										<p class="alignright">1.50€</p>
+										<p id="extra">Azeitonas da região sem caroço.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='meattwo' onclick="pulse(this.id)" class="ui segments large">
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/bruschettas.JPG">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Bruschettas com queijo</p>
+										<p class="alignright">2.50€</p>
+										<p id="extra">Pão torrado com espinafres salteados, queijo fresco e pulvilhado com oregãos.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div id='meatthree' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/pate-tostas.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Paté de atum</p>
+										<p class="alignright">1.50€</p>
+                                        <p id="extra">Mini-tostas com paté de atum.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='meatfour' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/pao-azeite.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Pão com azeite</p>
+										<p class="alignright">1.30€</p>
+										<p id="extra">Fatias de pão caseiro com um fio de azeite regional. (2 unidades)</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div id='meatfive' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/pao-azeitona.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Pão de azeitonas</p>
+										<p class="alignright">1.25€</p>
+                                        <p id="extra">Pão caseiro de azeitonas fatiado.</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+							<div id='meatsix' onclick="pulse(this.id)" class="ui segments large">
+								<!-- Primeira Coluna Esquerda -->
+								<div class="ui fluid image">
+									<img class="ui large fluid image" src="../images/pao-regular.jpg">
+								</div>
+								<div class="ui secondary segment">
+									<div id="textbox">
+										<p class="alignleft">Pão</p>
+										<p class="alignright">0.80€</p>
+                                        <p id="extra">Pão bola caseiro. (3 unidades)</p>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='twoleft' onclick="pulse(this.id)" class="ui segments huge">		<!-- Segunda Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/pao-azeite.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Pão com um fio de azeite regional</div>
-								<div class="right aligned column">2.00€</div>
-								<p id="extra">Fatias de pão caseiro com um fio de azeite regional. (2 unidades)</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='threeleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/pao-azeitona.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Pão de azeitonas</div>
-								<div class="right aligned column">2.25€</div>
-								<p id="extra">Pão caseiro de azeitonas fatiado.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='fourleft' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Esquerda -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/pate-tostas.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Paté de delícias do mar</div>
-								<div class="right aligned column">1.50€</div>
-                                <p id="extra"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="six wide stretched column">													<!-- 2º Coluna Principal -->
-			<div class="ui vertical segment">
-				<div id='oneright' onclick="pulse(this.id)" class="ui segments huge"> 			<!-- Primeira Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/azeitonas.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Azeitonas</div>
-								<div class="right aligned column">1.10€</div>
-                                <p id="extra"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='tworight' onclick="pulse(this.id)" class="ui segments huge">			<!-- Segunda Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/presunto.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Fatias de presunto</div>
-								<div class="right aligned column">2.10€</div>
-                                <p id="extra"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='threeright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Terceira Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/bruschettas.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Bruschettas de espinafres com queijo</div>
-								<div class="right aligned column">2.75€</div>
-								<p id="extra">Pão torrado com espinafres salteados, queijo fresco e pulvilhado com oregãos.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui vertical segment">
-				<div id='fourright' onclick="pulse(this.id)" class="ui segments huge">			<!-- Quarta Coluna Direita -->
-						<div class="ui fluid image">
-							<img class="ui large fluid image" src="../images/camarao.jpg">
-						</div>
-					<div class="ui secondary segment">
-						<div class="ui grid">
-							<div class="row">
-								<div class="thirteen wide column">Camarão</div>
-								<div class="right aligned column">4.50€</div>
-                                <p id="extra"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            </div>			
 		</div>
 	</div>
 	<div id="algo" class="ui modal">
